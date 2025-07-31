@@ -23,3 +23,60 @@ shape = SubResource("RectangleShape2D_6phgx")
 position = Vector2(738.5, 283)
 scale = Vector2(11.6172, 1.04688)
 texture = ExtResource("2_k5f4k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = -213.0
+offset_right = 144.5
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/pause_menu"]
+layout_mode = 0
+offset_right = 294.0
+offset_bottom = 432.0
+color = Color(0.894183, 0.304131, 0.999999, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/pause_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -103.5
+offset_right = 96.5
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back  to game" type="Button" parent="CanvasLayer/pause_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back to game"
+
+[node name="Settings" type="Button" parent="CanvasLayer/pause_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="Exit" type="Button" parent="CanvasLayer/pause_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Back  to game" to="Player" method="_on_back__to_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Settings" to="Player" method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Exit" to="Player" method="_on_exit_pressed"]

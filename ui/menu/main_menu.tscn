@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd2m4d576ux7"]
+[gd_scene load_steps=11 format=3 uid="uid://cd2m4d576ux7"]
 
 [ext_resource type="Script" uid="uid://3u0u0hmpfwcp" path="res://Scripts/UI/Menu/main_menu.gd" id="1_gvx18"]
 
@@ -26,25 +26,6 @@ noise = SubResource("FastNoiseLite_28flt")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ehe0"]
 atlas = SubResource("NoiseTexture2D_or6mk")
-
-[sub_resource type="GDScript" id="GDScript_37pjl"]
-script/source = "extends Node
-
-@export var level: PackedScene = preload(\"res://Scenes/level.tscn\")
-
-#Todo write the transition code
-func transition():
-	print(\"Transition starting....\")
-	get_tree().change_scene_to_packed(level)
-"
-
-[sub_resource type="GDScript" id="GDScript_or6mk"]
-script/source = "extends Node
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func pressed_btn():
-	get_tree().quit()
-"
 
 [sub_resource type="Gradient" id="Gradient_48xlc"]
 interpolation_mode = 1
@@ -121,7 +102,6 @@ layout_mode = 2
 [node name="PlayBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
-script = SubResource("GDScript_37pjl")
 
 [node name="SettingsBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -131,7 +111,6 @@ text = "Settings"
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Exit"
-script = SubResource("GDScript_or6mk")
 
 [node name="Control" type="MarginContainer" parent="."]
 clip_contents = true
