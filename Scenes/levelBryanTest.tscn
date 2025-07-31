@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdalmwmtjdhwc"]
+
+[ext_resource type="PackedScene" uid="uid://dys4xmkdv5kmf" path="res://Scenes/player.tscn" id="1_etu74"]
+[ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="2_esc16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6phgx"]
+size = Vector2(1495, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etu74"]
+size = Vector2(224, 53)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_etu74")]
+position = Vector2(290, 132)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(737.5, 286)
+shape = SubResource("RectangleShape2D_6phgx")
+
+[node name="Sprite2D" type="Sprite2D" parent="floor"]
+position = Vector2(738.5, 283)
+scale = Vector2(11.6172, 1.04688)
+texture = ExtResource("2_esc16")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.5
+offset_top = -213.0
+offset_right = 144.5
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/pause_menu"]
+layout_mode = 0
+offset_right = 294.0
+offset_bottom = 432.0
+color = Color(0.894183, 0.304131, 0.999999, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/pause_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -103.5
+offset_right = 96.5
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back  to game" type="Button" parent="CanvasLayer/pause_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back to game"
+
+[node name="Settings" type="Button" parent="CanvasLayer/pause_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="Exit" type="Button" parent="CanvasLayer/pause_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2(494, 23)
+
+[node name="Plataform" type="Node2D" parent="Platforms"]
+position = Vector2(-44, 111)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platforms/Plataform"]
+position = Vector2(35, 36)
+scale = Vector2(1.76563, 0.421875)
+texture = ExtResource("2_esc16")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Plataform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Plataform/StaticBody2D"]
+position = Vector2(34, 35.5)
+shape = SubResource("RectangleShape2D_etu74")
+
+[connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Back  to game" to="Player" method="_on_back__to_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Settings" to="Player" method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Exit" to="Player" method="_on_exit_pressed"]

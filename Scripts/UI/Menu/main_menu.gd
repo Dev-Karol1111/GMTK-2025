@@ -1,6 +1,6 @@
 extends Control
 
-var level_scene = preload("res://Scenes/level.tscn")
+var level_scene = preload("res://Scenes/levelBryanTest.tscn")
 var settings_scene = preload("res://ui/settings/settings.tscn")
 
 # Called when the node enters the scene tree for the first time.
