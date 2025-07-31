@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTK-2025"
+run/main_scene="uid://cd2m4d576ux7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[gui]
+
+theme/custom="uid://dex4gniyu8r83"
 
 [rendering]
 

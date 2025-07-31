@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://cd2m4d576ux7"]
+
+[ext_resource type="Script" uid="uid://dpu1dxmliyto3" path="res://Scripts/UI/Menu/exit_script.gd" id="1_28flt"]
+[ext_resource type="Script" uid="uid://dfx85nnvelio5" path="res://Scripts/UI/Menu/transition_scene.gd" id="1_48xlc"]
+
+[sub_resource type="Gradient" id="Gradient_erv1k"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.487654)
+colors = PackedColorArray(0.490715, 0.1024, 0.127591, 1, 0.809386, 0.391672, 0.438593, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_28flt"]
+noise_type = 3
+seed = 1
+frequency = 0.0366
+offset = Vector3(-233.33, 0, 0)
+fractal_type = 2
+fractal_lacunarity = 1.0
+fractal_gain = 2.0
+fractal_weighted_strength = 0.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_48xlc"]
+width = 1152
+height = 648
+generate_mipmaps = false
+color_ramp = SubResource("Gradient_erv1k")
+noise = SubResource("FastNoiseLite_28flt")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ehe0"]
+atlas = SubResource("NoiseTexture2D_48xlc")
+
+[node name="CenterContainer" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1152, 648)
+autoscroll = Vector2(-5, -10)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_1ehe0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+script = ExtResource("1_48xlc")
+
+[node name="SettingsBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Credits" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Credits
+"
+
+[node name="ExitBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Exit"
+script = ExtResource("1_28flt")
+
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="VBoxContainer/PlayBtn" method="transition"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ExitBtn" to="VBoxContainer/HBoxContainer/ExitBtn" method="pressed_btn"]
