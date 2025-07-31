@@ -1,9 +1,8 @@
 extends Node
 
-@export var to:PackedScene = preload("res://Scenes/Main.tscn")
+@export var level: PackedScene = preload("res://Scenes/level.tscn")
 
 #Todo write the transition code
 func transition():
 	print("Transition starting....")
-	get_tree().change_scene_to_packed(to)
-	pass
+	get_tree().change_scene_to_packed(level)
