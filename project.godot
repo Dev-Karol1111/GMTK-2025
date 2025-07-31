@@ -33,6 +33,10 @@ run/main_scene="uid://cd2m4d576ux7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameStateManager="*res://Scripts/Globals/GameStateManager.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray()
