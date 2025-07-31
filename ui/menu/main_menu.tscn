@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd2m4d576ux7"]
+[gd_scene load_steps=11 format=3 uid="uid://cd2m4d576ux7"]
 
-[ext_resource type="Script" uid="uid://dpu1dxmliyto3" path="res://Scripts/UI/Menu/exit_script.gd" id="1_28flt"]
-[ext_resource type="Script" uid="uid://dfx85nnvelio5" path="res://Scripts/UI/Menu/transition_scene.gd" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://3u0u0hmpfwcp" path="res://Scripts/UI/Menu/main_menu.gd" id="1_gvx18"]
 
 [sub_resource type="Gradient" id="Gradient_erv1k"]
 interpolation_mode = 1
@@ -18,7 +17,7 @@ fractal_lacunarity = 1.0
 fractal_gain = 2.0
 fractal_weighted_strength = 0.5
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_48xlc"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_or6mk"]
 width = 1152
 height = 648
 generate_mipmaps = false
@@ -26,7 +25,7 @@ color_ramp = SubResource("Gradient_erv1k")
 noise = SubResource("FastNoiseLite_28flt")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ehe0"]
-atlas = SubResource("NoiseTexture2D_48xlc")
+atlas = SubResource("NoiseTexture2D_or6mk")
 
 [sub_resource type="Gradient" id="Gradient_48xlc"]
 interpolation_mode = 1
@@ -61,6 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gvx18")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -102,7 +102,6 @@ layout_mode = 2
 [node name="PlayBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
-script = ExtResource("1_48xlc")
 
 [node name="SettingsBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -112,7 +111,6 @@ text = "Settings"
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Exit"
-script = ExtResource("1_28flt")
 
 [node name="Control" type="MarginContainer" parent="."]
 clip_contents = true
@@ -177,5 +175,6 @@ layout_mode = 2
 text = "Ray"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayBtn" to="CenterContainer/VBoxContainer/PlayBtn" method="transition"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitBtn" to="CenterContainer/VBoxContainer/ExitBtn" method="pressed_btn"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
