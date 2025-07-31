@@ -35,7 +35,6 @@ func movement():
 func jump(delta):
 	if not is_on_floor() or coyoteTimer.time_left<=0:
 		velocity += get_gravity() * delta
-		print("El tiempo restante es ", coyoteTimer.time_left)
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or coyoteTime==true) :
 		velocity.y = jump_velocity
 		coyoteTime=false
