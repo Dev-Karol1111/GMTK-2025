@@ -1,5 +1,6 @@
 # GMTK - 2025
-## GAME TITLE
+## GAME TITLE 
+
 A 2D platform game with a twist. The word loops - not in space, but in how you interact with it.
 ---
 ## Table of Contents
@@ -7,6 +8,11 @@ A 2D platform game with a twist. The word loops - not in space, but in how you i
 2. [Environment Design](#environment-design)
 3. [Characters & Abilities](#characters--abilities)
 4. [Scene Flow](#scene-flow)
+5. [Game Play Variations](#game-play-variations)
+6. [Visuals & Sounds](#visuals--sounds)
+7. [Controls](#controls)
+8. [Goal](#goal)
+9. [Credits](#credits)
 
 ---
 ##   Game Concept 
@@ -44,8 +50,13 @@ A 2D platform game with a twist. The word loops - not in space, but in how you i
 
 ---
 ## Game Play Variations
+|Obstacles | Loop 1 Solution (Double Jump) | Loop 2 Solution (Object Control) |Loop 3 Solution (Dash) |
+|----------|-------------------------------|----------------------------------|-----------------------|
+| Spikes| Double Jump to clear gap| Push box into spike gap and walk over| Dash mid air to skip or pass quickly |
+|Tall Wall | Jump and Wall jump | Build box stack | Dash to break weak wall|
+| Laser | Jump oveer the laser | Build box stack | Dash to pass quickly |
 ---
-## Visuals
+## Visuals & Sounds
 ---
 ## Controls
 ---
@@ -55,13 +66,18 @@ The game is a metaphor for adaptation -- you face the same world, but you grow n
 ---
 ## Credits
 ### Team Lead :
-  - FrozenDeveloper
+   - FrozenDeveloper
 ### Game Design :
   - KrishnaGupta-15
+  - Akadius
 ### Programming :
-  - Karol
+  - DevKarol
   - MaZd
-  - Ray Oblivion Lock
+  - RayLock
+  - Bryan Moreno
 ### Artist :
-  - Droid 
+  - Droid
+  - Lucas
+### Sound Compose:
+  - Neferthyt_o
 ---
