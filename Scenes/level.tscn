@@ -1,18 +1,14 @@
-[gd_scene load_steps=15 format=4 uid="uid://dll2j1egldgb8"]
+[gd_scene load_steps=13 format=4 uid="uid://dll2j1egldgb8"]
 
 [ext_resource type="Texture2D" uid="uid://cu14vdgl77hsj" path="res://Assets/Tileset.png" id="1_bvt00"]
 [ext_resource type="PackedScene" uid="uid://dys4xmkdv5kmf" path="res://Scenes/player.tscn" id="1_tumq0"]
 [ext_resource type="Script" uid="uid://cw8mggqbby1j5" path="res://Scripts/Ability.gd" id="2_81xng"]
-[ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="2_k5f4k"]
 [ext_resource type="Script" uid="uid://dysoglmxvh54q" path="res://Scripts/UI/pause_menu.gd" id="3_6phgx"]
 [ext_resource type="Texture2D" uid="uid://daa03fcy2nq0v" path="res://Assets/healthbar_under.png" id="5_754fn"]
 [ext_resource type="PackedScene" uid="uid://h7ti1a4p8leu" path="res://Scenes/Blocks/destructible_block.tscn" id="5_wqkje"]
 [ext_resource type="Texture2D" uid="uid://ddekq3jhoc1op" path="res://Assets/healthbar_progress.png" id="6_bvt00"]
 [ext_resource type="Script" uid="uid://c04xm47tgvav6" path="res://Scripts/Entities/Player/health_bar.gd" id="7_oqgf2"]
 [ext_resource type="Texture2D" uid="uid://dvckhtmb6itcq" path="res://Assets/tileset2.png" id="10_oqgf2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqkje"]
-size = Vector2(156.5, 319.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvt00"]
 texture = ExtResource("1_bvt00")
@@ -32,24 +28,14 @@ sources/1 = SubResource("TileSetAtlasSource_qxfql")
 [node name="Main" type="Node2D"]
 
 [node name="destructible_block" parent="." groups=["Destructible"] instance=ExtResource("5_wqkje")]
-visible = false
-position = Vector2(939, 176)
+position = Vector2(176, 238)
 
-[node name="Block" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="Sprite2D" type="Sprite2D" parent="Block"]
-position = Vector2(1052, 56)
-scale = Vector2(1.19141, 2.46484)
-texture = ExtResource("2_k5f4k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
-position = Vector2(1050.75, 58.25)
-shape = SubResource("RectangleShape2D_wqkje")
+[node name="destructible_block" parent="destructible_block" instance=ExtResource("5_wqkje")]
+position = Vector2(0, -18)
 
 [node name="Player" parent="." instance=ExtResource("1_tumq0")]
-position = Vector2(169, 184)
-rotation = 0.00773976
+position = Vector2(127, 194)
+rotation = 0.00471363
 speed = 100.0
 jump_velocity = -250.0
 dash_distance = 25
@@ -63,6 +49,7 @@ current_ability = 0
 player = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="pause_menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
