@@ -65,12 +65,3 @@ The game is a metaphor for adaptation -- you face the same world, but you grow n
 ### Artist :
   - Droid 
 ---
-
-
-
-
-
-
-
-
-
