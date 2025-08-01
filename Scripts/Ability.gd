@@ -47,10 +47,33 @@ func dash():
 		can_dash = false
 		
 		var dash_vector = Vector2(player.dash_distance * player.direction, 0)
+		
+		var dash_box := RectangleShape2D.new()
+		dash_box.extents = Vector2(abs(dash_vector.x), 200)
+		
+		var transform := Transform2D.IDENTITY
+		transform.origin = player.global_position + dash_vector / 2.0
+		
 		var space_state = player.get_world_2d().direct_space_state
-		var result = space_state.intersect_ray(PhysicsRayQueryParameters2D.create(player.global_position, player.global_position + dash_vector))
-		if result:
-			player.global_position = result.position - dash_vector.normalized() * 4 # zatrzymaj się przed ścianą
+		var query := PhysicsShapeQueryParameters2D.new()
+		query.shape = dash_box
+		query.transform = player.transform
+		query.exclude = [player]
+		query.collide_with_bodies = true
+		
+		var result = space_state.intersect_shape(query)
+		
+		var blocked := false
+		
+		for block in result:
+			var collider = block.collider
+			if collider.is_in_group("Destructible"):
+				collider.queue_free()
+			else:
+				blocked = true
+		
+		if blocked:
+			player.global_position += dash_vector.normalized() * (player.dash_distance * 0.5)
 		else:
 			player.global_position += dash_vector
 		

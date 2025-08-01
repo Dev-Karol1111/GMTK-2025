@@ -41,6 +41,10 @@ GameStateManager="*res://Scripts/Globals/GameStateManager.gd"
 
 enabled=PackedStringArray()
 
+[global_group]
+
+Destructible=""
+
 [gui]
 
 theme/custom="uid://dex4gniyu8r83"
