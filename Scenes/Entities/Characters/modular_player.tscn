@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8shnce8qcjg1"]
+
+[ext_resource type="Script" uid="uid://yiq1rsrqelkx" path="res://Scripts/Entities/Player/modular_player.gd" id="1_pasck"]
+[ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="1_um57e"]
+[ext_resource type="PackedScene" uid="uid://dh0iwcla82oxe" path="res://Scenes/Components/gravity_component.tscn" id="3_pquip"]
+[ext_resource type="PackedScene" uid="uid://jeonx45uyjyx" path="res://Scenes/Components/input_component.tscn" id="4_004tn"]
+[ext_resource type="PackedScene" uid="uid://b5yt5rnkt12y" path="res://Scenes/Components/movement_component.tscn" id="5_tnlsu"]
+[ext_resource type="PackedScene" uid="uid://dsctunjpgn1rg" path="res://Scenes/Components/advanced_jump_component.tscn" id="6_tnlsu"]
+[ext_resource type="PackedScene" uid="uid://d322q8a7ysijw" path="res://Scenes/Components/dash_component.tscn" id="7_jore7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjttw"]
+size = Vector2(128, 128)
+
+[node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "dash_component")]
+script = ExtResource("1_pasck")
+gravity_component = NodePath("GravityComponent")
+input_component = NodePath("InputComponent")
+movement_component = NodePath("MovementComponent")
+jump_component = NodePath("AdvancedJumpComponent")
+dash_component = NodePath("DashComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_um57e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wjttw")
+
+[node name="GravityComponent" parent="." instance=ExtResource("3_pquip")]
+
+[node name="InputComponent" parent="." instance=ExtResource("4_004tn")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("5_tnlsu")]
+
+[node name="AdvancedJumpComponent" parent="." instance=ExtResource("6_tnlsu")]
+jump_velocity = -500.0
+
+[node name="DashComponent" parent="." instance=ExtResource("7_jore7")]
