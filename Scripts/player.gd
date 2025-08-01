@@ -3,7 +3,9 @@ extends CharacterBody2D
 class_name Player
 
 signal touched_ground
+signal health_changed
 
+@export var HP := 3
 @export var speed := 300.0
 @export_category("Jump")
 @export var jump_velocity := -400.0
@@ -15,10 +17,12 @@ signal touched_ground
 
 var is_pause_menu_opened
 var direction
+var current_hp
 
 func _ready() -> void:
 	GameStateManager.level_start()
 	is_pause_menu_opened = false
+	current_hp = HP
 
 func _physics_process(delta: float) -> void:
 	if is_pause_menu_opened:
@@ -46,6 +50,10 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func take_damage(damage):
+	current_hp -= damage
+	health_changed.emit()
+
 func pause():
 	GameStateManager.level_pause(true)
 	is_pause_menu_opened = true
@@ -53,3 +61,6 @@ func pause():
 func unpause():
 	GameStateManager.level_pause(false)
 	is_pause_menu_opened = false
+
+func player():
+	pass # stay it empty; easier to detect player (*.has_method("player"))
