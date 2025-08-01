@@ -1,18 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b27vd0057ygql"]
+[gd_scene load_steps=7 format=3 uid="uid://b27vd0057ygql"]
 
-[ext_resource type="PackedScene" uid="uid://dys4xmkdv5kmf" path="res://Scenes/player.tscn" id="1_x1t5x"]
 [ext_resource type="Script" uid="uid://3aebmyokkf03" path="res://Scenes/TestScenes/ray_test.gd" id="2_2ivv3"]
 [ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="2_16f11"]
+[ext_resource type="PackedScene" uid="uid://dkabndrqqw4l6" path="res://Scenes/Entities/Enemies/base_enemy.tscn" id="3_fipqr"]
 [ext_resource type="Script" uid="uid://dysoglmxvh54q" path="res://Scripts/UI/pause_menu.gd" id="4_17egt"]
+[ext_resource type="PackedScene" uid="uid://c8shnce8qcjg1" path="res://Scenes/Entities/Characters/modular_player.tscn" id="5_fipqr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_16f11"]
 
 [node name="TestRay" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_x1t5x")]
-position = Vector2(454, 415)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="floor" type="StaticBody2D" parent="."]
 script = ExtResource("2_2ivv3")
@@ -29,9 +25,13 @@ texture = ExtResource("2_16f11")
 position = Vector2(576, 574)
 shape = SubResource("WorldBoundaryShape2D_16f11")
 
+[node name="enemy" parent="floor" instance=ExtResource("3_fipqr")]
+position = Vector2(960, 512)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause_menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,7 +83,10 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Exit"
 
-[connection signal="paused" from="CanvasLayer/pause_menu" to="Player" method="pause"]
-[connection signal="unpaused" from="CanvasLayer/pause_menu" to="Player" method="unpause"]
+[node name="ModularPlayer" parent="." instance=ExtResource("5_fipqr")]
+position = Vector2(704, 384)
+
+[node name="Camera2D" type="Camera2D" parent="ModularPlayer"]
+
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Back  to game" to="CanvasLayer/pause_menu" method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Exit" to="CanvasLayer/pause_menu" method="_on_exit_pressed"]
