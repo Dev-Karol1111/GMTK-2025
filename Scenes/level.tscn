@@ -17,6 +17,7 @@ position = Vector2(290, 132)
 
 [node name="Ability" type="Node" parent="Player" node_paths=PackedStringArray("player")]
 script = ExtResource("2_81xng")
+current_ability = 0
 player = NodePath("..")
 
 [node name="floor" type="StaticBody2D" parent="."]
