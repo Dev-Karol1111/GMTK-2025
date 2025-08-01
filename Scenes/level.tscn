@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dll2j1egldgb8"]
+[gd_scene load_steps=8 format=3 uid="uid://dll2j1egldgb8"]
 
 [ext_resource type="PackedScene" uid="uid://dys4xmkdv5kmf" path="res://Scenes/player.tscn" id="1_tumq0"]
 [ext_resource type="Script" uid="uid://cw8mggqbby1j5" path="res://Scripts/Ability.gd" id="2_81xng"]
 [ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="2_k5f4k"]
 [ext_resource type="Script" uid="uid://dysoglmxvh54q" path="res://Scripts/UI/pause_menu.gd" id="3_6phgx"]
+[ext_resource type="PackedScene" uid="uid://h7ti1a4p8leu" path="res://Scenes/Blocks/destructible_block.tscn" id="5_wqkje"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6phgx"]
-size = Vector2(1495, 138)
+size = Vector2(1488, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqkje"]
+size = Vector2(156.5, 319.5)
 
 [node name="Main" type="Node2D"]
 
@@ -17,16 +21,17 @@ position = Vector2(290, 132)
 
 [node name="Ability" type="Node" parent="Player" node_paths=PackedStringArray("player")]
 script = ExtResource("2_81xng")
+current_ability = 0
 player = NodePath("..")
 
 [node name="floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(737.5, 286)
+position = Vector2(738, 286)
 shape = SubResource("RectangleShape2D_6phgx")
 
 [node name="Sprite2D" type="Sprite2D" parent="floor"]
-position = Vector2(738.5, 283)
+position = Vector2(739, 286)
 scale = Vector2(11.6172, 1.04688)
 texture = ExtResource("2_k5f4k")
 
@@ -83,6 +88,20 @@ text = "Settings"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Exit"
+
+[node name="destructible_block" parent="." groups=["Destructible"] instance=ExtResource("5_wqkje")]
+position = Vector2(939, 176)
+
+[node name="Block" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+position = Vector2(1052, 56)
+scale = Vector2(1.19141, 2.46484)
+texture = ExtResource("2_k5f4k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+position = Vector2(1050.75, 58.25)
+shape = SubResource("RectangleShape2D_wqkje")
 
 [connection signal="paused" from="CanvasLayer/pause_menu" to="Player" method="pause"]
 [connection signal="unpaused" from="CanvasLayer/pause_menu" to="Player" method="unpause"]
