@@ -1,13 +1,15 @@
 extends CharacterBody2D
-
+class_name Player
 @export var speed := 300.0
 @export var jump_velocity := -400.0
-@onready var pause_menu: Control = $"../CanvasLayer/pause_menu"
-
+@export var jump_cooldown: float = 0.1
+@export var jump_debounce: bool = false # Changing to true will disable jumping
+signal touched_ground
 var is_pause_menu_opened
 
 func _ready() -> void:
-	pause_menu.visible = false
+	GameStateManager.level_start()
+	is_pause_menu_opened = false
 
 func _physics_process(delta: float) -> void:
 	if is_pause_menu_opened:
@@ -15,10 +17,15 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		touched_ground.emit()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+		jump_debounce = true
+		await get_tree().create_timer(jump_cooldown).timeout
+		jump_debounce = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -30,15 +37,10 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("pause menu"):
-		pause_menu.visible = not pause_menu.visible
-		is_pause_menu_opened = pause_menu.visible
+func pause():
+	GameStateManager.level_pause(true)
+	is_pause_menu_opened = true
 
-
-func _on_back__to_game_pressed() -> void:
-	pause_menu.visible = false
+func unpause():
+	GameStateManager.level_pause(false)
 	is_pause_menu_opened = false
-
-func _on_exit_pressed() -> void:
-	get_tree().change_scene_to_file("res://ui/menu/main_menu.tscn")

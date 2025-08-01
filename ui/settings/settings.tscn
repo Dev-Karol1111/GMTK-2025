@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bljqyfw4itvf0"]
 
 [ext_resource type="Theme" uid="uid://dex4gniyu8r83" path="res://Themes/game_theme.tres" id="1_bjc66"]
-[ext_resource type="Script" uid="uid://bee8fwaww7v43" path="res://Scripts/UI/Settings/settings.gd" id="1_hrs25"]
+[ext_resource type="Script" uid="uid://bee8fwaww7v43" path="res://Scripts/UI/settings.gd" id="1_hrs25"]
 
 [sub_resource type="Gradient" id="Gradient_ttsya"]
 interpolation_mode = 1
