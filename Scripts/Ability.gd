@@ -7,14 +7,12 @@ enum Abilities {
 	DOUBLE_JUMP,
 	OBJECT_MANIPULATION,
 }
-
 var ability_debounce: bool = false
 var debounce = false
 @export var current_ability: Abilities = Abilities.DOUBLE_JUMP
 @export var player: Player = self.get_parent()
 signal ability_changed
 var prev_ability: Abilities = current_ability
-
 func double_jump():
 	if not ability_debounce and not player.jump_debounce:
 		print("called")
