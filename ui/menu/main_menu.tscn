@@ -84,7 +84,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Game Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.898039, 0.709804, 0.207843, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
