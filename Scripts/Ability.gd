@@ -43,42 +43,37 @@ func double_jump():
 		ability_debounce = false
 
 func dash():
-	if can_dash:
-		can_dash = false
-		
-		var dash_vector = Vector2(player.dash_distance * player.direction, 0)
-		
-		var dash_box := RectangleShape2D.new()
-		dash_box.extents = Vector2(abs(dash_vector.x), 200)
-		
-		var transform := Transform2D.IDENTITY
-		transform.origin = player.global_position + dash_vector / 2.0
-		
-		var space_state = player.get_world_2d().direct_space_state
-		var query := PhysicsShapeQueryParameters2D.new()
-		query.shape = dash_box
-		query.transform = player.transform
-		query.exclude = [player]
-		query.collide_with_bodies = true
-		
-		var result = space_state.intersect_shape(query)
-		
-		var blocked := false
-		
-		for block in result:
-			var collider = block.collider
-			if collider.is_in_group("Destructible"):
-				collider.queue_free()
-			else:
-				blocked = true
-		
-		if blocked:
-			player.global_position += dash_vector.normalized() * (player.dash_distance * 0.5)
-		else:
-			player.global_position += dash_vector
-		
-		await get_tree().create_timer(player.dash_cooldown).timeout
-		can_dash = true
+	if not can_dash:
+		return
+	
+	can_dash = false
+	
+	var dash_vector = Vector2(player.dash_distance * player.direction, 0)
+	var space_state = player.get_world_2d().direct_space_state
+
+	var dash_box := RectangleShape2D.new()
+	dash_box.extents = Vector2(abs(dash_vector.x) / 2.0, 100)
+
+	var shape_transform := Transform2D.IDENTITY
+	shape_transform.origin = player.global_position + dash_vector / 2.0
+
+	var shape_query := PhysicsShapeQueryParameters2D.new()
+	shape_query.shape = dash_box
+	shape_query.transform = shape_transform
+	shape_query.exclude = [player]
+	shape_query.collide_with_bodies = true
+
+	var results := space_state.intersect_shape(shape_query)
+
+	for block in results:
+		var collider = block.collider
+		if collider.is_in_group("Destructible"):
+			collider.queue_free()
+	
+	var dash_result = player.move_and_collide(dash_vector)
+
+	await get_tree().create_timer(player.dash_cooldown).timeout
+	can_dash = true
 
 
 func on_ability_changed(c):
