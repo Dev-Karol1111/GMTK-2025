@@ -15,7 +15,6 @@ signal ability_changed
 var prev_ability: Abilities = current_ability
 func double_jump():
 	if not ability_debounce and not player.jump_debounce:
-		print("called")
 		ability_debounce = true
 		player.velocity.y = player.jump_velocity
 		await player.touched_ground
