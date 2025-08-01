@@ -1,11 +1,20 @@
 extends CharacterBody2D
+
 class_name Player
+
+signal touched_ground
+
 @export var speed := 300.0
+@export_category("Jump")
 @export var jump_velocity := -400.0
 @export var jump_cooldown: float = 0.1
 @export var jump_debounce: bool = false # Changing to true will disable jumping
-signal touched_ground
+@export_category("dash")
+@export var dash_distance := 200
+@export var dash_cooldown := 0.5 #Minutes
+
 var is_pause_menu_opened
+var direction
 
 func _ready() -> void:
 	GameStateManager.level_start()
@@ -29,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("move_left", "move_right")
+	direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * speed
 	else:
