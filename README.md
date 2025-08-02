@@ -1,4 +1,5 @@
 # GMTK - 2025
+---
 ## TRIAL AND ERROR 
 
 "Hidden a black site, the elusive Cybernetic Order oversees the trial of an  Acolyte. As selective as they are secretive, 
@@ -11,10 +12,9 @@ the order demands that the Acolyte prove their worth again, and again, and again
 4. [Enemies](#enemies)
 5. [Scene Flow](#scene-flow)
 6. [Game Play Variations](#game-play-variations)
-7. [Visuals & Sounds](#visuals--sounds)
-8. [Controls](#controls)
-9. [Goal](#goal)
-10. [Credits](#credits)
+7. [Controls](#controls)
+8. [Goal](#goal)
+9. [Credits](#credits)
 
 ---
 ##   Game Concept 
@@ -66,13 +66,16 @@ the order demands that the Acolyte prove their worth again, and again, and again
 |Tall Wall | Jump and Wall jump | Build box stack | Dash to break weak wall|
 | Laser | Jump oveer the laser | Build box stack | Dash to pass quickly |
 ---
-## Visuals & Sounds
----
+
 ## Controls
+
+Movement Control : WASD / ARROW KEYS 
+Jump : Space
+Special Power : Shift
 ---
 ## Goal
-The game is a metaphor for adaptation -- you face the same world, but you grow not by changing it, but by changing how you engage with it.
 
+The game conveys the message of " Persevere and master yourself to take on impossible odds".
 ---
 ## Credits
 ### Team Lead :
@@ -82,12 +85,12 @@ The game is a metaphor for adaptation -- you face the same world, but you grow n
   - Akadius
 ### Programming :
   - DevKarol
-  - MaZd
   - RayLock
+  - MaZd
   - Bryan Moreno
 ### Artist :
   - Droid
   - Lucas
-### Sound Compose:
-  - Neferthyt_o
+### Music Compose :
+  - Samuele Colo
 ---
