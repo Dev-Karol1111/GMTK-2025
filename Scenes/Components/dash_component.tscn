@@ -2,13 +2,17 @@
 
 [ext_resource type="Script" uid="uid://c32wxbemocsb2" path="res://Scripts/Mechanics/dash_component.gd" id="1_b382s"]
 
-[node name="DashComponent" type="Node" node_paths=PackedStringArray("timer")]
+[node name="DashComponent" type="Node" node_paths=PackedStringArray("timer", "cd_timer")]
 script = ExtResource("1_b382s")
-speed = 1000.0
 timer = NodePath("Timer")
+cd_timer = NodePath("Cooldown")
+speed = 1000.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
