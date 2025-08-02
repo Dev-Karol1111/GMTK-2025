@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl1faxrpgk3n0"]
+
+[ext_resource type="Script" uid="uid://b303bl7uw3jds" path="res://Scripts/Mechanics/manipulate_component.gd" id="1_ee0t5"]
+
+[node name="ManipulateComponent" type="Node"]
+script = ExtResource("1_ee0t5")

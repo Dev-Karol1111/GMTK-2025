@@ -7,6 +7,7 @@ extends Node
 
 @export_subgroup("Settings")
 @export var speed: float = 600.0
+@export var kills: bool = false
 
 var prev_dir = 1
 var isDashing = false
@@ -29,7 +30,10 @@ func handle_dash_timer(body: CharacterBody2D, want_to_dash: bool)->void:
 		
 
 func _on_area_entered(body: Node2D):
-	if body.is_in_group("Destructible") and isDashing:
+	if not isDashing:
+		return
+	var destroy: bool = body.is_in_group("Destructible") or (body.is_in_group("Killable") and kills)
+	if destroy:
 		body.queue_free()
 	print(body)
 

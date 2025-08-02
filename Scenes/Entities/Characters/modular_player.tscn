@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8shnce8qcjg1"]
+[gd_scene load_steps=13 format=3 uid="uid://c8shnce8qcjg1"]
 
 [ext_resource type="Script" uid="uid://yiq1rsrqelkx" path="res://Scripts/Entities/Player/modular_player.gd" id="1_pasck"]
 [ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="1_um57e"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b5yt5rnkt12y" path="res://Scenes/Components/movement_component.tscn" id="5_tnlsu"]
 [ext_resource type="PackedScene" uid="uid://dsctunjpgn1rg" path="res://Scenes/Components/advanced_jump_component.tscn" id="6_tnlsu"]
 [ext_resource type="PackedScene" uid="uid://d322q8a7ysijw" path="res://Scenes/Components/dash_component.tscn" id="7_jore7"]
+[ext_resource type="PackedScene" uid="uid://b0wnb03ylf8b4" path="res://Scenes/Components/rigidbody_component.tscn" id="8_34l16"]
+[ext_resource type="PackedScene" uid="uid://bn4i636inu13d" path="res://Scenes/Components/HealthComponent.tscn" id="9_db018"]
+[ext_resource type="PackedScene" uid="uid://bl1faxrpgk3n0" path="res://Scenes/Components/manipulate_component.tscn" id="10_db018"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjttw"]
 size = Vector2(16.5756, 16.6825)
@@ -14,13 +17,16 @@ size = Vector2(16.5756, 16.6825)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jore7"]
 size = Vector2(22, 14.1092)
 
-[node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "dash_component")]
+[node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "dash_component", "rigidbody_component", "manipulate_component", "health_component")]
 script = ExtResource("1_pasck")
 gravity_component = NodePath("GravityComponent")
 input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
 jump_component = NodePath("AdvancedJumpComponent")
 dash_component = NodePath("DashComponent")
+rigidbody_component = NodePath("RigidbodyComponent")
+manipulate_component = NodePath("ManipulateComponent")
+health_component = NodePath("HealthComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.13, 0.13)
@@ -29,6 +35,12 @@ texture = ExtResource("1_um57e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.000237465, 0.0233169)
 shape = SubResource("RectangleShape2D_wjttw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.054594)
+shape = SubResource("RectangleShape2D_jore7")
 
 [node name="GravityComponent" parent="." instance=ExtResource("3_pquip")]
 gravity = 800.0
@@ -47,10 +59,13 @@ jump_velocity = -250.0
 [node name="DashComponent" parent="." instance=ExtResource("7_jore7")]
 speed = 250.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="RigidbodyComponent" parent="." instance=ExtResource("8_34l16")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -0.054594)
-shape = SubResource("RectangleShape2D_jore7")
+[node name="HealthComponent" parent="." instance=ExtResource("9_db018")]
+health = 3.0
+limit = Vector2(0, 3)
+
+[node name="ManipulateComponent" parent="." instance=ExtResource("10_db018")]
 
 [connection signal="body_entered" from="Area2D" to="DashComponent" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="ManipulateComponent" method="_on_area_entered"]

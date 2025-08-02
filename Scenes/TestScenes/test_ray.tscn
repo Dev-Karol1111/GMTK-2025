@@ -1,43 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://b27vd0057ygql"]
+[gd_scene load_steps=9 format=3 uid="uid://b27vd0057ygql"]
 
 [ext_resource type="Script" uid="uid://3aebmyokkf03" path="res://Scenes/TestScenes/ray_test.gd" id="2_2ivv3"]
 [ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="2_16f11"]
 [ext_resource type="PackedScene" uid="uid://dkabndrqqw4l6" path="res://Scenes/Entities/Enemies/base_enemy.tscn" id="3_fipqr"]
 [ext_resource type="Script" uid="uid://dysoglmxvh54q" path="res://Scripts/UI/pause_menu.gd" id="4_17egt"]
 [ext_resource type="PackedScene" uid="uid://h7ti1a4p8leu" path="res://Scenes/Blocks/destructible_block.tscn" id="4_m8m4m"]
+[ext_resource type="PackedScene" uid="uid://ckpae5oh4ynu5" path="res://Scenes/Blocks/pickable_block.tscn" id="5_8iat5"]
 [ext_resource type="PackedScene" uid="uid://c8shnce8qcjg1" path="res://Scenes/Entities/Characters/modular_player.tscn" id="5_fipqr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_16f11"]
 
 [node name="TestRay" type="Node2D"]
 
-[node name="floor" type="StaticBody2D" parent="."]
+[node name="level" type="StaticBody2D" parent="."]
 script = ExtResource("2_2ivv3")
 
-[node name="Parallax2D" type="Parallax2D" parent="floor"]
+[node name="Parallax2D" type="Parallax2D" parent="level"]
 repeat_size = Vector2(16, 0)
 repeat_times = 24
 
-[node name="Sprite2D" type="Sprite2D" parent="floor/Parallax2D"]
+[node name="Sprite2D" type="Sprite2D" parent="level/Parallax2D"]
 position = Vector2(600, 92)
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("2_16f11")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level"]
 position = Vector2(479, 85)
 shape = SubResource("WorldBoundaryShape2D_16f11")
 
-[node name="enemy" parent="floor" instance=ExtResource("3_fipqr")]
+[node name="enemy" parent="level" instance=ExtResource("3_fipqr")]
 position = Vector2(168, 62)
 
-[node name="destructible_block" parent="floor" instance=ExtResource("4_m8m4m")]
+[node name="destructible_block" parent="level" instance=ExtResource("4_m8m4m")]
 position = Vector2(26, 41)
 
-[node name="destructible_block2" parent="floor" instance=ExtResource("4_m8m4m")]
+[node name="destructible_block2" parent="level" instance=ExtResource("4_m8m4m")]
 position = Vector2(26, 24)
 
-[node name="destructible_block3" parent="floor" instance=ExtResource("4_m8m4m")]
+[node name="destructible_block3" parent="level" instance=ExtResource("4_m8m4m")]
 position = Vector2(26, 8)
+
+[node name="pickable_block" parent="level" instance=ExtResource("5_8iat5")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
