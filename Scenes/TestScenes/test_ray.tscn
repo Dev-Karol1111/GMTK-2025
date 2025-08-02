@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkabndrqqw4l6" path="res://Scenes/Entities/Enemies/base_enemy.tscn" id="3_fipqr"]
 [ext_resource type="Script" uid="uid://dysoglmxvh54q" path="res://Scripts/UI/pause_menu.gd" id="4_17egt"]
 [ext_resource type="PackedScene" uid="uid://h7ti1a4p8leu" path="res://Scenes/Blocks/destructible_block.tscn" id="4_m8m4m"]
-[ext_resource type="PackedScene" uid="uid://ckpae5oh4ynu5" path="res://Scenes/Blocks/pickable_block.tscn" id="5_8iat5"]
+[ext_resource type="PackedScene" uid="uid://ckpae5oh4ynu5" path="res://Scenes/Blocks/manipulatable_block.tscn" id="5_8iat5"]
 [ext_resource type="PackedScene" uid="uid://c8shnce8qcjg1" path="res://Scenes/Entities/Characters/modular_player.tscn" id="5_fipqr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_16f11"]

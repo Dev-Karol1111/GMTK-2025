@@ -1,19 +1,17 @@
 class_name ManipulateComponent
 extends Node
 
-var empty_hand: bool = true
-var want_to_hold: bool = false
-var obj: Node2D
+var objs = []
 
 func manipulate_object(body: CharacterBody2D, want_to_manipulate: bool):
-	if empty_hand:
-		want_to_hold = want_to_manipulate
-	else:
-		want_to_hold = false
-	pass # Replace with function body.
-	
+	if want_to_manipulate:
+		for i in objs:
+			i.manipulate()
 
 func _on_area_entered(body):
-	if empty_hand and want_to_hold:
-		obj = body
-	pass # Replace with function body.
+	if body.is_in_group("Manipulatable"):
+		objs.append(body)
+
+func _on_area_exited(body):
+	if body.has_method("Manipulatable"):
+		objs.erase(body)

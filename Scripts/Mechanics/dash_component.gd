@@ -35,7 +35,6 @@ func _on_area_entered(body: Node2D):
 	var destroy: bool = body.is_in_group("Destructible") or (body.is_in_group("Killable") and kills)
 	if destroy:
 		body.queue_free()
-	print(body)
 
 func _on_timer_timeout():
 	isDashing = false

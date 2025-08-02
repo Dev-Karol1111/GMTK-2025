@@ -20,3 +20,11 @@ func _physics_process(delta: float)-> void:
 	move_and_slide()
 	
 	rigidbody_component.handle_forces(self)
+
+func damage(amt: float):
+	health_component.dmg(amt)
+
+
+func _on_health_updated(prev, amt):
+	if amt == 0:
+		print("dead emit signal or something.")

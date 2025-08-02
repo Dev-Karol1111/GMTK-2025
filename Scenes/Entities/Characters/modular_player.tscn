@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8shnce8qcjg1"]
+[gd_scene load_steps=16 format=3 uid="uid://c8shnce8qcjg1"]
 
 [ext_resource type="Script" uid="uid://yiq1rsrqelkx" path="res://Scripts/Entities/Player/modular_player.gd" id="1_pasck"]
 [ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="1_um57e"]
@@ -10,12 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://b0wnb03ylf8b4" path="res://Scenes/Components/rigidbody_component.tscn" id="8_34l16"]
 [ext_resource type="PackedScene" uid="uid://bn4i636inu13d" path="res://Scenes/Components/HealthComponent.tscn" id="9_db018"]
 [ext_resource type="PackedScene" uid="uid://bl1faxrpgk3n0" path="res://Scenes/Components/manipulate_component.tscn" id="10_db018"]
+[ext_resource type="Script" uid="uid://pi1011ph7atk" path="res://Scripts/Entities/Player/modular_health.gd" id="11_u2hr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjttw"]
 size = Vector2(16.5756, 16.6825)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jore7"]
 size = Vector2(22, 14.1092)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2hr2"]
+radius = 63.6946
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_db018"]
+size = Vector2(4, 4)
 
 [node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "dash_component", "rigidbody_component", "manipulate_component", "health_component")]
 script = ExtResource("1_pasck")
@@ -36,11 +43,16 @@ texture = ExtResource("1_um57e")
 position = Vector2(0.000237465, 0.0233169)
 shape = SubResource("RectangleShape2D_wjttw")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DashArea2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashArea2D"]
 position = Vector2(0, -0.054594)
 shape = SubResource("RectangleShape2D_jore7")
+
+[node name="ObjectManipulationArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectManipulationArea2D"]
+shape = SubResource("CircleShape2D_u2hr2")
 
 [node name="GravityComponent" parent="." instance=ExtResource("3_pquip")]
 gravity = 800.0
@@ -67,5 +79,42 @@ limit = Vector2(0, 3)
 
 [node name="ManipulateComponent" parent="." instance=ExtResource("10_db018")]
 
-[connection signal="body_entered" from="Area2D" to="DashComponent" method="_on_area_entered"]
-[connection signal="body_entered" from="Area2D" to="ManipulateComponent" method="_on_area_entered"]
+[node name="HBoxContainer" type="HBoxContainer" parent="." node_paths=PackedStringArray("h1", "h2", "h3")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -16.0
+offset_right = 9.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 3
+alignment = 1
+script = ExtResource("11_u2hr2")
+h1 = NodePath("TextureRect")
+h2 = NodePath("TextureRect2")
+h3 = NodePath("TextureRect3")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_db018")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_db018")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_db018")
+stretch_mode = 2
+
+[connection signal="body_entered" from="DashArea2D" to="DashComponent" method="_on_area_entered"]
+[connection signal="body_entered" from="ObjectManipulationArea2D" to="ManipulateComponent" method="_on_area_entered"]
+[connection signal="body_exited" from="ObjectManipulationArea2D" to="ManipulateComponent" method="_on_area_exited"]
+[connection signal="health_updated" from="HealthComponent" to="." method="_on_health_updated"]
+[connection signal="health_updated" from="HealthComponent" to="HBoxContainer" method="_on_health_updated"]

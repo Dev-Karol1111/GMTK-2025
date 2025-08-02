@@ -45,7 +45,7 @@ enabled=PackedStringArray()
 
 Destructible=""
 Killable=""
-Can_Pick=""
+Manipulatable=""
 
 [gui]
 
