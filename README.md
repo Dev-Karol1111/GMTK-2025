@@ -1,39 +1,48 @@
 # GMTK - 2025
-## GAME TITLE 
+## TRIAL AND ERROR 
 
-A 2D platform game with a twist. The word loops - not in space, but in how you interact with it.
+"Hidden a black site, the elusive Cybernetic Order oversees the trial of an  Acolyte. As selective as they are secretive, 
+the order demands that the Acolyte prove their worth again, and again, and again..."
 ---
 ## Table of Contents
 1. [Game Concept](#game-concept)
 2. [Environment Design](#environment-design)
 3. [Characters & Abilities](#characters--abilities)
-4. [Scene Flow](#scene-flow)
-5. [Game Play Variations](#game-play-variations)
-6. [Visuals & Sounds](#visuals--sounds)
-7. [Controls](#controls)
-8. [Goal](#goal)
-9. [Credits](#credits)
+4. [Enemies](#enemies)
+5. [Scene Flow](#scene-flow)
+6. [Game Play Variations](#game-play-variations)
+7. [Visuals & Sounds](#visuals--sounds)
+8. [Controls](#controls)
+9. [Goal](#goal)
+10. [Credits](#credits)
 
 ---
 ##   Game Concept 
-* A single level is played three times.
-* Each time, the player gains a new ability but loses the previous one.
-* The layout stays exactly the same, but how the player solves it changes dramatically.
+* A single level is played a number of  times.
+* Each time, the Acolyte gains a new ability but loses the previous one.
+* The layout stays exactly the same, but how the Acolyte solves it changes dramatically.
 ---
 ## Environment Design
 * A 2D side scroller.
 * Common Obstacles :
    - Spikes
-   - Moving Platforms
-   - Tall Wall
    - Lasers
+   - Tall walls
+   - Enemies
 ---
 ## Characters & Abilities 
-| Loop | Name of Character | Ability | Description |
-|------|-------------------|---------|-------------|
-| 1.   |                   |Double Jump| Jump twice to overcome vertical obstacles or spaced platforms. |
-| 2.   |                   | Object Control| Interact with boxes to move/push them to block spikes or reach areas.|
-| 3.   |                   | Dash | Quick horizontal movement to dodge fast obstacles or break through walls. |
+| Loop | Ability | Description |
+|------|---------|-------------|
+| 1.   | Double Jump| Jump twice to overcome vertical obstacles or spaced platforms. |
+| 2.   | Object Control| Interact with boxes to move/push them to block spikes or reach areas.|
+| 3.   | Dash | Quick horizontal movement to dodge fast obstacles or break through walls. |
+
+---
+## Enemies
+|Enemy | Description |
+|------|-------------|
+|Blastroids | Small wandering bots |
+| Drones| Position bounded self destructing cam bots |
 
 ---
 ## Scene Flow
@@ -49,6 +58,7 @@ A 2D platform game with a twist. The word loops - not in space, but in how you i
 - [x] End Screen
 
 ---
+
 ## Game Play Variations
 |Obstacles | Loop 1 Solution (Double Jump) | Loop 2 Solution (Object Control) |Loop 3 Solution (Dash) |
 |----------|-------------------------------|----------------------------------|-----------------------|
