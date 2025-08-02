@@ -13,12 +13,17 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause menu"):
 		pause_menu.visible = not pause_menu.visible
 		is_pause_menu_opened = pause_menu.visible
-		paused.emit()
+		if pause_menu.visible:
+			paused.emit()
+		else:
+			unpaused.emit()
 
 func _on_back_to_game_pressed() -> void:
-	pause_menu.visible = false
-	is_pause_menu_opened = false
+	pause_menu.visible = not pause_menu.visible
+	is_pause_menu_opened = pause_menu.visible
 	unpaused.emit()
+	
+
 
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://ui/menu/main_menu.tscn")
