@@ -6,6 +6,7 @@
 size = Vector2(19, 18)
 
 [node name="destructible_block" type="StaticBody2D"]
+z_index = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-9.5625, 9.21875)
