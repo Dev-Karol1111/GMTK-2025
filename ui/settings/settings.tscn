@@ -38,8 +38,9 @@ grow_vertical = 2
 script = ExtResource("1_hrs25")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 0
+offset_right = 2347.0
+offset_bottom = 1512.0
 texture = SubResource("AtlasTexture_hrs25")
 
 [node name="Screen_name" type="Label" parent="."]
@@ -63,40 +64,56 @@ theme_override_font_sizes/font_size = 75
 text = "SETTINGS"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 54.0
-offset_top = 222.0
-offset_right = 187.0
-offset_bottom = 619.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -200.0
+offset_right = 164.0
+offset_bottom = 197.0
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
 layout_mode = 2
 theme = ExtResource("1_bjc66")
 text = "FullScreen    "
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer"]
+[node name="FullScreen" type="CheckButton" parent="VBoxContainer/Fullscreen"]
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 975.0
-offset_top = 218.0
-offset_right = 1108.0
-offset_bottom = 615.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -201.0
+offset_right = -19.0
+offset_bottom = 196.0
+grow_horizontal = 0
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="Voulme" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2/Voulme"]
 layout_mode = 2
 theme = ExtResource("1_bjc66")
-text = "Test    "
+text = "Volume"
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer2/HBoxContainer"]
+[node name="Volume" type="HSlider" parent="VBoxContainer2/Voulme"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="BckTMnu" type="Button" parent="."]
 layout_mode = 1
@@ -114,4 +131,6 @@ grow_vertical = 0
 text = "Back to menu
 "
 
+[connection signal="toggled" from="VBoxContainer/Fullscreen/FullScreen" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="VBoxContainer2/Voulme/Volume" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="BckTMnu" to="." method="_on_bck_t_mnu_pressed"]
