@@ -48,7 +48,7 @@ func set_ability():
 		dash_component.enable = true
 		manipulate_component.enable = false
 	elif loop == 4:
-		pass
+		get_tree().change_scene_to_file("res://ui/win.tscn")
 
 func player():
 	pass
