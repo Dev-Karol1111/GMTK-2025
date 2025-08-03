@@ -5,14 +5,12 @@
 
 [sub_resource type="Gradient" id="Gradient_ttsya"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.487654)
-colors = PackedColorArray(0.490715, 0.1024, 0.127591, 1, 0.809386, 0.391672, 0.438593, 1)
+offsets = PackedFloat32Array(0, 0.232877)
+colors = PackedColorArray(0.180392, 0.180392, 0.203922, 1, 0.129412, 0.129412, 0.137255, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_bjc66"]
-noise_type = 3
 seed = 1
-frequency = 0.0366
-offset = Vector3(-233.33, 0, 0)
+frequency = 0.0276
 fractal_type = 2
 fractal_lacunarity = 1.0
 fractal_gain = 2.0
@@ -21,7 +19,10 @@ fractal_weighted_strength = 0.5
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_48xlc"]
 width = 1152
 height = 648
+in_3d_space = true
 generate_mipmaps = false
+seamless_blend_skirt = 0.325
+bump_strength = 43.0
 color_ramp = SubResource("Gradient_ttsya")
 noise = SubResource("FastNoiseLite_bjc66")
 
@@ -38,6 +39,7 @@ grow_vertical = 2
 script = ExtResource("1_hrs25")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("AtlasTexture_hrs25")
@@ -47,18 +49,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -171.0
-offset_top = 51.0
-offset_right = 174.0
-offset_bottom = 154.0
+offset_left = -110.0
+offset_top = 49.0
+offset_right = 119.0
+offset_bottom = 131.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.898039, 0.709804, 0.207843, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
-theme_override_colors/font_outline_color = Color(0.0745098, 0.0470588, 0.00392157, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 10
-theme_override_constants/outline_size = 10
-theme_override_constants/shadow_outline_size = 10
+theme = ExtResource("1_bjc66")
+theme_override_colors/font_color = Color(0.94902, 0.909804, 0.701961, 1)
 theme_override_font_sizes/font_size = 75
 text = "SETTINGS"
 
