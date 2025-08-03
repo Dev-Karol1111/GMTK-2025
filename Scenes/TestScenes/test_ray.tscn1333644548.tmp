@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b27vd0057ygql"]
+[gd_scene load_steps=9 format=3 uid="uid://b27vd0057ygql"]
 
 [ext_resource type="Script" uid="uid://3aebmyokkf03" path="res://Scenes/TestScenes/ray_test.gd" id="2_2ivv3"]
 [ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="2_16f11"]
@@ -9,18 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c8shnce8qcjg1" path="res://Scenes/Entities/Characters/modular_player.tscn" id="5_fipqr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_16f11"]
-
-[sub_resource type="Curve2D" id="Curve2D_8iat5"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -16, 0, 0, 0, 0, 0, 0, -48, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, -16, 0)
-}
-point_count = 4
-
-[sub_resource type="Curve2D" id="Curve2D_0rque"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32, -24)
-}
-point_count = 2
 
 [node name="TestRay" type="Node2D"]
 
@@ -52,14 +40,7 @@ position = Vector2(26, 24)
 [node name="destructible_block3" parent="level" instance=ExtResource("4_m8m4m")]
 position = Vector2(26, 8)
 
-[node name="ManipulatableBlock" parent="level" instance=ExtResource("5_8iat5")]
-position = Vector2(-24, 32)
-curve = SubResource("Curve2D_8iat5")
-mode = "Loop"
-
-[node name="ManipulatableBlock2" parent="level" instance=ExtResource("5_8iat5")]
-position = Vector2(-64, 32)
-curve = SubResource("Curve2D_0rque")
+[node name="pickable_block" parent="level" instance=ExtResource("5_8iat5")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

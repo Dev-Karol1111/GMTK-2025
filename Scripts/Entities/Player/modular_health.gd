@@ -1,8 +1,8 @@
 extends HBoxContainer
 
-@export var h1:TextureRect
-@export var h2:Node
-@export var h3:Node
+@export var h1:ColorRect
+@export var h2:ColorRect
+@export var h3:ColorRect
 
 func _on_health_updated(prev, curr):
 	print("health gui updated:",curr)

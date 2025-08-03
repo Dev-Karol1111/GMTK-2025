@@ -16,14 +16,13 @@ func _physics_process(delta: float)-> void:
 	movement_component.handle_horizontal_movement(self, input_component.input_horizontal)
 	jump_component.handle_jump(self, input_component.get_jump_input(), input_component.get_jump_input_released())
 	dash_component.handle_dash(self,sign(velocity.x),input_component.get_dash_input())
-	manipulate_component.manipulate_object(self, input_component.get_manipulate_input())
+	manipulate_component.manipulate_objects(self, input_component.get_manipulate_input())
 	move_and_slide()
 	
 	rigidbody_component.handle_forces(self)
 
 func damage(amt: float):
 	health_component.dmg(amt)
-
 
 func _on_health_updated(prev, amt):
 	if amt == 0:
