@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyhys5f4ke7o"
-path="res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"
+uid="uid://dl10mmjo1vwbp"
+path="res://.godot/imported/Drone.png-b055debb02c5766f00e0c7e3d8b33873.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GMTKTileSet.png"
-dest_files=["res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"]
+source_file="res://Assets/Drone.png"
+dest_files=["res://.godot/imported/Drone.png-b055debb02c5766f00e0c7e3d8b33873.ctex"]
 
 [params]
 

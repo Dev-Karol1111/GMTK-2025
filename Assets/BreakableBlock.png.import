@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyhys5f4ke7o"
-path="res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"
+uid="uid://dsex4ooymb3p7"
+path="res://.godot/imported/BreakableBlock.png-b4354815d5e0d0f75dea1f0f530b1a57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GMTKTileSet.png"
-dest_files=["res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"]
+source_file="res://Assets/BreakableBlock.png"
+dest_files=["res://.godot/imported/BreakableBlock.png-b4354815d5e0d0f75dea1f0f530b1a57.ctex"]
 
 [params]
 

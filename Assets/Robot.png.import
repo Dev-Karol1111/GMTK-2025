@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyhys5f4ke7o"
-path="res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"
+uid="uid://cw1mbu2oh2o3l"
+path="res://.godot/imported/Robot.png-9b56b14de3c9974a744dce0fa7bd26b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GMTKTileSet.png"
-dest_files=["res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"]
+source_file="res://Assets/Robot.png"
+dest_files=["res://.godot/imported/Robot.png-9b56b14de3c9974a744dce0fa7bd26b4.ctex"]
 
 [params]
 

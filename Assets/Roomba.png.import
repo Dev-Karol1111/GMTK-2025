@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyhys5f4ke7o"
-path="res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"
+uid="uid://da2854ync4rft"
+path="res://.godot/imported/Roomba.png-afc4f768ea802556ff83fb6b7be9c73a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GMTKTileSet.png"
-dest_files=["res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"]
+source_file="res://Assets/Roomba.png"
+dest_files=["res://.godot/imported/Roomba.png-afc4f768ea802556ff83fb6b7be9c73a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyhys5f4ke7o"
-path="res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"
+uid="uid://blocd1bude0k8"
+path="res://.godot/imported/RobotWalk.png-46a36082847c891abf9044f54e9bde0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GMTKTileSet.png"
-dest_files=["res://.godot/imported/GMTKTileSet.png-2a64a68d286f59a41483d2bae425e422.ctex"]
+source_file="res://Assets/RobotWalk.png"
+dest_files=["res://.godot/imported/RobotWalk.png-46a36082847c891abf9044f54e9bde0e.ctex"]
 
 [params]
 
