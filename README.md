@@ -72,6 +72,7 @@ the order demands that the Acolyte prove their worth again, and again, and again
 Movement Control : WASD / ARROW KEYS 
 Jump : Space
 Special Power : Shift
+object control: left mouse key
 ---
 ## Goal
 
@@ -92,5 +93,5 @@ The game conveys the message of " Persevere and master yourself to take on impos
   - Droid
   - Lucas
 ### Music Compose :
-  - Samuele Colo
+  - Samuele Colo'
 ---
