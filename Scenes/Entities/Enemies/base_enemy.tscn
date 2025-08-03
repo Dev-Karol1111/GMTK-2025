@@ -10,6 +10,7 @@
 size = Vector2(16.6275, 16.6275)
 
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "brain_component", "movement_component") groups=["Killable"]]
+
 script = ExtResource("1_2mbgu")
 gravity_component = NodePath("GravityComponent")
 brain_component = NodePath("BasicAiComponent")
