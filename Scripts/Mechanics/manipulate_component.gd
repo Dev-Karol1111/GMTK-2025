@@ -12,5 +12,5 @@ func _on_area_entered(body):
 		manipulate.connect(body.get_parent().manipulate)
 
 func _on_area_exited(body):
-	if body.has_method("Manipulatable"):
+	if body.is_in_group("Manipulatable"):
 		manipulate.disconnect(body.get_parent().manipulate)
