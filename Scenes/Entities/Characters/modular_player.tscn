@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8shnce8qcjg1"]
+[gd_scene load_steps=27 format=3 uid="uid://c8shnce8qcjg1"]
 
 [ext_resource type="Script" uid="uid://yiq1rsrqelkx" path="res://Scripts/Entities/Player/modular_player.gd" id="1_pasck"]
-[ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="1_um57e"]
+[ext_resource type="Texture2D" uid="uid://cw1mbu2oh2o3l" path="res://Assets/RobotCharacter1.png" id="2_fo4vm"]
+[ext_resource type="Texture2D" uid="uid://bnkb270dmo5yw" path="res://Assets/RobotCharacter1-Sheet.png" id="2_u2hr2"]
 [ext_resource type="PackedScene" uid="uid://dh0iwcla82oxe" path="res://Scenes/Components/gravity_component.tscn" id="3_pquip"]
 [ext_resource type="PackedScene" uid="uid://jeonx45uyjyx" path="res://Scenes/Components/input_component.tscn" id="4_004tn"]
 [ext_resource type="PackedScene" uid="uid://b5yt5rnkt12y" path="res://Scenes/Components/movement_component.tscn" id="5_tnlsu"]
@@ -11,6 +12,69 @@
 [ext_resource type="PackedScene" uid="uid://bn4i636inu13d" path="res://Scenes/Components/HealthComponent.tscn" id="9_db018"]
 [ext_resource type="PackedScene" uid="uid://bl1faxrpgk3n0" path="res://Scenes/Components/manipulate_component.tscn" id="10_db018"]
 [ext_resource type="Script" uid="uid://pi1011ph7atk" path="res://Scripts/Entities/Player/modular_health.gd" id="11_u2hr2"]
+[ext_resource type="Texture2D" uid="uid://daa03fcy2nq0v" path="res://Assets/healthbar_under.png" id="13_r3kud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_040dd"]
+atlas = ExtResource("2_fo4vm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo4vm"]
+atlas = ExtResource("2_u2hr2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3kud"]
+atlas = ExtResource("2_u2hr2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btw0w"]
+atlas = ExtResource("2_u2hr2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0883"]
+atlas = ExtResource("2_u2hr2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_702rj"]
+atlas = ExtResource("2_u2hr2")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlx3u"]
+atlas = ExtResource("2_u2hr2")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_040dd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_040dd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo4vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3kud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btw0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0883")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_702rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlx3u")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjttw"]
 size = Vector2(16.5756, 16.6825)
@@ -20,6 +84,21 @@ size = Vector2(22, 14.1092)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2hr2"]
 radius = 63.6946
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btw0w"]
+texture = ExtResource("13_r3kud")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0883"]
+bg_color = Color(0.974708, 0.397711, 0.399204, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "dash_component", "rigidbody_component", "manipulate_component", "health_component")]
 script = ExtResource("1_pasck")
@@ -32,9 +111,11 @@ rigidbody_component = NodePath("RigidbodyComponent")
 manipulate_component = NodePath("ManipulateComponent")
 health_component = NodePath("HealthComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.13, 0.13)
-texture = ExtResource("1_um57e")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_040dd")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.000237465, 0.0233169)
@@ -76,39 +157,34 @@ limit = Vector2(0, 3)
 
 [node name="ManipulateComponent" parent="." instance=ExtResource("10_db018")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." node_paths=PackedStringArray("h1", "h2", "h3")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
+[node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -9.0
-offset_top = -16.0
-offset_right = 9.0
-offset_bottom = -12.0
+offset_top = -32.0
+offset_right = 7.0
+offset_bottom = -9.0
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxTexture_btw0w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_t0883")
+step = 1.0
+value = 100.0
+
+[node name="HBoxContainer" type="AspectRatioContainer" parent="." node_paths=PackedStringArray("h1", "h2", "h3")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -32.0
+offset_right = 7.0
+offset_bottom = -9.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 3
-alignment = 1
+grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("11_u2hr2")
-h1 = NodePath("h1")
-h2 = NodePath("h2")
-h3 = NodePath("h3")
-
-[node name="h1" type="ColorRect" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0.782728, 0, 0.246049, 1)
-
-[node name="h2" type="ColorRect" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0.784314, 0, 0.247059, 1)
-
-[node name="h3" type="ColorRect" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0.784314, 0, 0.247059, 1)
+h1 = NodePath("")
+h2 = NodePath("")
+h3 = NodePath("")
 
 [connection signal="body_entered" from="DashArea2D" to="DashComponent" method="_on_area_entered"]
 [connection signal="body_entered" from="ObjectManipulationArea2D" to="ManipulateComponent" method="_on_area_entered"]
