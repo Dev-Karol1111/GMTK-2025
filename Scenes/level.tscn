@@ -243,9 +243,9 @@ current_ability = 0
 player = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="pause_menu" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -263,6 +263,7 @@ size_flags_vertical = 4
 script = ExtResource("3_6phgx")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/pause_menu"]
+visible = false
 layout_mode = 0
 offset_right = 294.0
 offset_bottom = 432.0
