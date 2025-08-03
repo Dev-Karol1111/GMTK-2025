@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://pi1011ph7atk" path="res://Scripts/Entities/Player/modular_health.gd" id="11_u2hr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjttw"]
-size = Vector2(16.5756, 16.6825)
+size = Vector2(16.5756, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jore7"]
 size = Vector2(22, 14.1092)
@@ -37,7 +37,7 @@ scale = Vector2(0.13, 0.13)
 texture = ExtResource("1_um57e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.000237465, 0.0233169)
+position = Vector2(0.000237465, 5.96046e-08)
 shape = SubResource("RectangleShape2D_wjttw")
 
 [node name="DashArea2D" type="Area2D" parent="."]

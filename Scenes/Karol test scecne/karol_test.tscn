@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cw8mggqbby1j5" path="res://Scripts/Ability.gd" id="3_rahbk"]
 [ext_resource type="PackedScene" uid="uid://cw760515kuynd" path="res://Scenes/laser.tscn" id="4_8x446"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y3amp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8x446"]
 texture = ExtResource("1_rgp7q")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -58,7 +58,7 @@ texture = ExtResource("1_rgp7q")
 
 [sub_resource type="TileSet" id="TileSet_rahbk"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_y3amp")
+sources/0 = SubResource("TileSetAtlasSource_8x446")
 
 [node name="karol_test" type="Node2D"]
 
