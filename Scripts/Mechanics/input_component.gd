@@ -14,3 +14,6 @@ func get_jump_input_released() -> bool:
 
 func get_dash_input() -> bool:
 	return Input.is_action_just_pressed("dash")
+
+func get_manipulate_input() -> bool:
+	return Input.is_action_just_pressed("object_manipulation")
