@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://h7ti1a4p8leu" path="res://Scenes/Blocks/destructible_block.tscn" id="5_wqkje"]
 [ext_resource type="PackedScene" uid="uid://b0pxa70ep0hro" path="res://Scenes/exit.tscn" id="6_0f350"]
 [ext_resource type="PackedScene" uid="uid://ckpae5oh4ynu5" path="res://Scenes/Blocks/manipulatable_block.tscn" id="6_754fn"]
-[ext_resource type="Texture2D" uid="uid://fxqoigr20ckr" path="res://Assets/GMTKTileSet.png" id="7_754fn"]
+[ext_resource type="Texture2D" uid="uid://dyhys5f4ke7o" path="res://Assets/GMTKTileSet.png" id="7_754fn"]
 [ext_resource type="PackedScene" uid="uid://c8shnce8qcjg1" path="res://Scenes/Entities/Characters/modular_player.tscn" id="8_bvt00"]
 [ext_resource type="PackedScene" uid="uid://yjnml70k7crq" path="res://monitor.tscn" id="10_qxfql"]
 

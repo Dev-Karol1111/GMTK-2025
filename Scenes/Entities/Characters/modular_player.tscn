@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c8shnce8qcjg1"]
 
 [ext_resource type="Script" uid="uid://yiq1rsrqelkx" path="res://Scripts/Entities/Player/modular_player.gd" id="1_pasck"]
-[ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="1_um57e"]
 [ext_resource type="PackedScene" uid="uid://dh0iwcla82oxe" path="res://Scenes/Components/gravity_component.tscn" id="3_pquip"]
 [ext_resource type="PackedScene" uid="uid://jeonx45uyjyx" path="res://Scenes/Components/input_component.tscn" id="4_004tn"]
 [ext_resource type="PackedScene" uid="uid://b5yt5rnkt12y" path="res://Scenes/Components/movement_component.tscn" id="5_tnlsu"]
@@ -10,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://b0wnb03ylf8b4" path="res://Scenes/Components/rigidbody_component.tscn" id="8_34l16"]
 [ext_resource type="PackedScene" uid="uid://bn4i636inu13d" path="res://Scenes/Components/HealthComponent.tscn" id="9_db018"]
 [ext_resource type="PackedScene" uid="uid://bl1faxrpgk3n0" path="res://Scenes/Components/manipulate_component.tscn" id="10_db018"]
-[ext_resource type="Script" uid="uid://pi1011ph7atk" path="res://Scripts/Entities/Player/modular_health.gd" id="11_u2hr2"]
+[ext_resource type="Texture2D" uid="uid://cw1mbu2oh2o3l" path="res://Assets/Robot.png" id="11_fo4vm"]
+[ext_resource type="Script" path="res://Scripts/Entities/Player/modular_health.gd" id="11_u2hr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjttw"]
-size = Vector2(16.5756, 14)
+size = Vector2(16.2876, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jore7"]
-size = Vector2(22, 14.1092)
+size = Vector2(22, 15.1092)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2hr2"]
 radius = 63.6946
@@ -32,18 +32,14 @@ rigidbody_component = NodePath("RigidbodyComponent")
 manipulate_component = NodePath("ManipulateComponent")
 health_component = NodePath("HealthComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.13, 0.13)
-texture = ExtResource("1_um57e")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.000237465, 5.96046e-08)
+position = Vector2(-0.143781, 0.5)
 shape = SubResource("RectangleShape2D_wjttw")
 
 [node name="DashArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashArea2D"]
-position = Vector2(0, -0.054594)
+position = Vector2(0, 0.445403)
 shape = SubResource("RectangleShape2D_jore7")
 
 [node name="ObjectManipulationArea2D" type="Area2D" parent="."]
@@ -109,6 +105,9 @@ color = Color(0.784314, 0, 0.247059, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.784314, 0, 0.247059, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("11_fo4vm")
 
 [connection signal="body_entered" from="DashArea2D" to="DashComponent" method="_on_area_entered"]
 [connection signal="body_entered" from="ObjectManipulationArea2D" to="ManipulateComponent" method="_on_area_entered"]
