@@ -157,7 +157,7 @@ alignment = 1
 
 [node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Zerakai
+text = "FrozenDev
 karol"
 
 [node name="Label3" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]

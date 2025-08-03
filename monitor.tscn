@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=3 uid="uid://yjnml70k7crq"]
+
+[ext_resource type="Script" uid="uid://bjruwvjp674jt" path="res://monitor.gd" id="1_fa1fk"]
+[ext_resource type="Texture2D" uid="uid://cfdpfm2h7dw13" path="res://Assets/monitor.png" id="1_qh22o"]
+[ext_resource type="Texture2D" uid="uid://p8ggqjwnoha5" path="res://Assets/teleport/monitor_teleport0008.png" id="3_n6pra"]
+[ext_resource type="Texture2D" uid="uid://qkpjb8mcx6a2" path="res://Assets/teleport/monitor_teleport0007.png" id="4_guvov"]
+[ext_resource type="Texture2D" uid="uid://bp12ea6aj4hye" path="res://Assets/teleport/monitor_teleport0006.png" id="5_6naae"]
+[ext_resource type="Texture2D" uid="uid://t2rdpe6bvkq8" path="res://Assets/teleport/monitor_teleport0005.png" id="6_bco7d"]
+[ext_resource type="Texture2D" uid="uid://cpx4i0y0iuwrj" path="res://Assets/teleport/monitor_teleport0004.png" id="7_q6gjv"]
+[ext_resource type="Texture2D" uid="uid://bquh3ow1nylm" path="res://Assets/teleport/monitor_teleport0003.png" id="8_yralg"]
+[ext_resource type="Texture2D" uid="uid://do0b7jsmvpakb" path="res://Assets/teleport/monitor_teleport0002.png" id="9_e2f1t"]
+[ext_resource type="Texture2D" uid="uid://cvcpfxnn4lm0x" path="res://Assets/teleport/monitor_teleport0001.png" id="10_60eiu"]
+[ext_resource type="Texture2D" uid="uid://b11nyfdgf2sqy" path="res://Assets/teleport/monitor_teleport0000.png" id="11_urrjm"]
+[ext_resource type="Texture2D" uid="uid://cv3280mcvqmib" path="res://Assets/smug/smug_closed_mouth.png" id="12_6naae"]
+[ext_resource type="Texture2D" uid="uid://br3jfr66pc0oh" path="res://Assets/smug/smug_open_mouth.png" id="13_bco7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh22o"]
+size = Vector2(155, 103)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fa1fk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qh22o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n6pra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_guvov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6naae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bco7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q6gjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yralg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e2f1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_60eiu")
+}],
+"loop": false,
+"name": &"teleportIn",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_urrjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_60eiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e2f1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yralg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q6gjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bco7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6naae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_guvov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n6pra")
+}],
+"loop": false,
+"name": &"teleportOut",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6gjv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6naae")
+}],
+"loop": false,
+"name": &"not_talking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6naae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bco7d")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]
+
+[node name="Monitor" type="Area2D"]
+script = ExtResource("1_fa1fk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_qh22o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fa1fk")
+animation = &"teleportIn"
+
+[node name="face" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q6gjv")
+animation = &"not_talking"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
