@@ -121,9 +121,6 @@ tile_set = SubResource("TileSet_oqgf2")
 [node name="Monitor" parent="." instance=ExtResource("10_qxfql")]
 position = Vector2(129, 235)
 
-[node name="Monitor2" parent="." instance=ExtResource("10_qxfql")]
-position = Vector2(469, 231)
-
 [connection signal="paused" from="CanvasLayer/pause_menu" to="Player" method="pause"]
 [connection signal="unpaused" from="CanvasLayer/pause_menu" to="Player" method="unpause"]
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Back  to game" to="CanvasLayer/pause_menu" method="_on_back_to_game_pressed"]
