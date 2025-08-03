@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dll2j1egldgb8"]
+[gd_scene load_steps=20 format=4 uid="uid://dll2j1egldgb8"]
 
 [ext_resource type="PackedScene" uid="uid://dys4xmkdv5kmf" path="res://Scenes/player.tscn" id="1_tumq0"]
 [ext_resource type="Script" uid="uid://cw8mggqbby1j5" path="res://Scripts/Ability.gd" id="2_81xng"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dl10mmjo1vwbp" path="res://Assets/Drone.png" id="9_bvt00"]
 [ext_resource type="Texture2D" uid="uid://da2854ync4rft" path="res://Assets/Roomba.png" id="10_oqgf2"]
 [ext_resource type="Texture2D" uid="uid://bbkycqfnvl6ie" path="res://Assets/GMTKTileSet.png" id="10_qxfql"]
+[ext_resource type="Texture2D" uid="uid://rdn36dk0majh" path="res://Assets/Sprite-0009-export.png" id="11_ha31o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ha31o"]
 texture = ExtResource("10_qxfql")
@@ -219,6 +220,14 @@ texture = ExtResource("10_qxfql")
 [sub_resource type="TileSet" id="TileSet_qxfql"]
 sources/0 = SubResource("TileSetAtlasSource_qxfql")
 
+[sub_resource type="Curve" id="Curve_crh0w"]
+_data = [Vector2(0.0284091, 0), 0.0, 0.0, 0, 0, Vector2(0.352273, 1), 0.0, 0.0, 0, 0, Vector2(0.704545, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_c7le1"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.866625, 0.478399, 1, 1, 0.781741, 0.657799, 1)
+
 [node name="Main" type="Node2D"]
 
 [node name="destructible_block" parent="." groups=["Destructible"] instance=ExtResource("5_wqkje")]
@@ -339,6 +348,49 @@ texture = ExtResource("9_bvt00")
 position = Vector2(275, 218)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("10_oqgf2")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(226, 197)
+emitting = false
+amount = 50
+texture = ExtResource("11_ha31o")
+lifetime = 0.28
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+fract_delta = false
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.81
+initial_velocity_max = 80.81
+scale_amount_min = 0.25
+scale_amount_curve = SubResource("Curve_crh0w")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color_ramp = SubResource("Gradient_c7le1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CPUParticles2D"]
+emitting = false
+amount = 50
+texture = ExtResource("11_ha31o")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+fract_delta = false
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.1
+initial_velocity_max = 20.2
+scale_amount_min = 0.25
+scale_amount_curve = SubResource("Curve_crh0w")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color_ramp = SubResource("Gradient_c7le1")
 
 [connection signal="paused" from="CanvasLayer/pause_menu" to="Player" method="pause"]
 [connection signal="unpaused" from="CanvasLayer/pause_menu" to="Player" method="unpause"]
