@@ -13,11 +13,12 @@ var prev_dir = 1
 var isDashing = false
 var b:CharacterBody2D
 
+var enable := true
+
 func handle_dash(body: CharacterBody2D, direction: float, want_to_dash: bool)-> void:
-	if direction != 0:
+	if direction != 0 and enable:
 		prev_dir = direction
-	
-	handle_dash_timer(body, want_to_dash)
+		handle_dash_timer(body, want_to_dash)
 
 #implement cd
 func handle_dash_timer(body: CharacterBody2D, want_to_dash: bool)->void:

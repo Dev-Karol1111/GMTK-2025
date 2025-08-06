@@ -1,17 +1,16 @@
 [gd_resource type="StyleBoxFlat" format=3 uid="uid://blofeaxqwyhok"]
 
 [resource]
-bg_color = Color(0.573177, 0.34172, 0.650206, 1)
+bg_color = Color(0.270588, 0.266667, 0.309804, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0.377764, 0.116374, 0.528667, 1)
+border_color = Color(0.94902, 0.909804, 0.701961, 1)
 corner_radius_top_left = 10
 corner_radius_bottom_right = 10
 expand_margin_left = 10.0
 expand_margin_right = 10.0
-shadow_size = 2
 shadow_offset = Vector2(2, 5)
 anti_aliasing = false
 anti_aliasing_size = 0.01

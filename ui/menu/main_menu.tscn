@@ -1,6 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cd2m4d576ux7"]
 
 [ext_resource type="Script" uid="uid://3u0u0hmpfwcp" path="res://Scripts/UI/main_menu.gd" id="1_gvx18"]
+[ext_resource type="Theme" uid="uid://dex4gniyu8r83" path="res://Themes/game_theme.tres" id="2_or6mk"]
+[ext_resource type="Texture2D" uid="uid://dyhys5f4ke7o" path="res://Assets/GMTKTileSet.png" id="3_gvx18"]
 
 [sub_resource type="Gradient" id="Gradient_erv1k"]
 interpolation_mode = 1
@@ -17,7 +19,7 @@ fractal_lacunarity = 1.0
 fractal_gain = 2.0
 fractal_weighted_strength = 0.5
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_or6mk"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_37pjl"]
 width = 1152
 height = 648
 generate_mipmaps = false
@@ -25,7 +27,7 @@ color_ramp = SubResource("Gradient_erv1k")
 noise = SubResource("FastNoiseLite_28flt")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ehe0"]
-atlas = SubResource("NoiseTexture2D_or6mk")
+atlas = SubResource("NoiseTexture2D_37pjl")
 
 [sub_resource type="Gradient" id="Gradient_48xlc"]
 interpolation_mode = 1
@@ -157,7 +159,7 @@ alignment = 1
 
 [node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Zerakai
+text = "FrozenDev
 karol"
 
 [node name="Label3" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]

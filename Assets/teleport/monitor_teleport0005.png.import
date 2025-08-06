@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw1mbu2oh2o3l"
-path="res://.godot/imported/RobotCharacter1.png-c23027065e50fe76defd59314e56eaf6.ctex"
+uid="uid://t2rdpe6bvkq8"
+path="res://.godot/imported/monitor_teleport0005.png-88a6e07328ef53044d6c56cff61bd6c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/RobotCharacter1.png"
-dest_files=["res://.godot/imported/RobotCharacter1.png-c23027065e50fe76defd59314e56eaf6.ctex"]
+source_file="res://Assets/teleport/monitor_teleport0005.png"
+dest_files=["res://.godot/imported/monitor_teleport0005.png-88a6e07328ef53044d6c56cff61bd6c0.ctex"]
 
 [params]
 

@@ -8,8 +8,8 @@ func _ready() -> void:
 	loop()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage"):
-		body.take_damage(1)
+	if body.has_method("player"):
+		body.damage(1)
 
 # Musi być async, bo używasz await
 func loop() -> void:
