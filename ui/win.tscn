@@ -37,6 +37,7 @@ grow_vertical = 2
 script = ExtResource("1_ya36f")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 2293.0
 offset_bottom = 1338.0
 texture = SubResource("AtlasTexture_xn20x")
@@ -46,8 +47,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -106.5
-offset_right = 106.5
+offset_left = -76.5
+offset_right = 76.5
 offset_bottom = 103.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.898039, 0.709804, 0.207843, 1)
@@ -58,9 +59,10 @@ theme_override_constants/shadow_offset_y = 10
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 75
-text = "Game Over"
+text = "WIN"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 233.0
 offset_top = 445.0
 offset_right = 980.0

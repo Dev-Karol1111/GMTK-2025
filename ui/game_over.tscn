@@ -37,6 +37,7 @@ grow_vertical = 2
 script = ExtResource("1_oo8kp")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 2293.0
 offset_bottom = 1338.0
 texture = SubResource("AtlasTexture_j1fe5")

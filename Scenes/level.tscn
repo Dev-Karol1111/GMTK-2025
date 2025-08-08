@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dll2j1egldgb8"]
+[gd_scene load_steps=13 format=4 uid="uid://dll2j1egldgb8"]
 
 [ext_resource type="PackedScene" uid="uid://cw760515kuynd" path="res://Scenes/laser.tscn" id="1_8c0lf"]
 [ext_resource type="Script" uid="uid://dysoglmxvh54q" path="res://Scripts/UI/pause_menu.gd" id="3_6phgx"]
@@ -6,10 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0pxa70ep0hro" path="res://Scenes/exit.tscn" id="6_0f350"]
 [ext_resource type="PackedScene" uid="uid://ckpae5oh4ynu5" path="res://Scenes/Blocks/manipulatable_block.tscn" id="6_754fn"]
 [ext_resource type="Texture2D" uid="uid://dyhys5f4ke7o" path="res://Assets/GMTKTileSet.png" id="7_754fn"]
-[ext_resource type="Texture2D" uid="uid://dsex4ooymb3p7" path="res://Assets/BreakableBlock.png" id="7_qxfql"]
 [ext_resource type="PackedScene" uid="uid://c8shnce8qcjg1" path="res://Scenes/Entities/Characters/modular_player.tscn" id="8_bvt00"]
-[ext_resource type="Texture2D" uid="uid://blocd1bude0k8" path="res://Assets/RobotWalk.png" id="8_oqgf2"]
-[ext_resource type="Texture2D" uid="uid://cdxmg62g2vlt4" path="res://Assets/RobotJump.png" id="8_qxfql"]
 [ext_resource type="PackedScene" uid="uid://yjnml70k7crq" path="res://monitor.tscn" id="10_qxfql"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqgf2"]
@@ -78,82 +75,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25)
 }
 point_count = 2
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nngtn"]
-atlas = ExtResource("8_qxfql")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vofx3"]
-atlas = ExtResource("8_qxfql")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_00k4y"]
-atlas = ExtResource("8_qxfql")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qxfql"]
-atlas = ExtResource("8_oqgf2")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ha31o"]
-atlas = ExtResource("8_oqgf2")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pa6b8"]
-atlas = ExtResource("8_oqgf2")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_crh0w"]
-atlas = ExtResource("8_oqgf2")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7le1"]
-atlas = ExtResource("8_oqgf2")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2klc5"]
-atlas = ExtResource("8_oqgf2")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qxfql"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nngtn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vofx3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_00k4y")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qxfql")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ha31o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pa6b8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_crh0w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c7le1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2klc5")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
 
 [node name="Main" type="Node2D"]
 
@@ -235,39 +156,28 @@ position = Vector2(679, 44)
 [node name="Manipulating_block" type="Node" parent="."]
 
 [node name="ManipulatableBlock" parent="Manipulating_block" instance=ExtResource("6_754fn")]
-position = Vector2(260, 51)
+position = Vector2(259, 52)
 curve = SubResource("Curve2D_bvt00")
-
-[node name="Sprite2D" type="Sprite2D" parent="Manipulating_block/ManipulatableBlock"]
-texture = ExtResource("7_qxfql")
 
 [node name="ManipulatableBlock2" parent="Manipulating_block" instance=ExtResource("6_754fn")]
 position = Vector2(517, 4)
 curve = SubResource("Curve2D_oqgf2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Manipulating_block/ManipulatableBlock2"]
-texture = ExtResource("7_qxfql")
 
 [node name="ModularPlayer" parent="." instance=ExtResource("8_bvt00")]
 
 [node name="Camera2D" type="Camera2D" parent="ModularPlayer"]
 zoom = Vector2(3, 3)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ModularPlayer"]
-sprite_frames = SubResource("SpriteFrames_qxfql")
-animation = &"walk"
-autoplay = "jump"
-
 [node name="destructible_blocks" type="Node" parent="."]
 
 [node name="destructible_block" parent="destructible_blocks" instance=ExtResource("5_wqkje")]
-position = Vector2(307, 20)
+position = Vector2(307, 22)
 
 [node name="destructible_block2" parent="destructible_blocks" instance=ExtResource("5_wqkje")]
-position = Vector2(307, 36)
+position = Vector2(307, 37)
 
 [node name="destructible_block3" parent="destructible_blocks" instance=ExtResource("5_wqkje")]
-position = Vector2(307, 53)
+position = Vector2(307, 52)
 
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Back  to game" to="CanvasLayer/pause_menu" method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Exit" to="CanvasLayer/pause_menu" method="_on_exit_pressed"]
