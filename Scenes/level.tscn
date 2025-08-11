@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dll2j1egldgb8"]
+[gd_scene load_steps=14 format=4 uid="uid://dll2j1egldgb8"]
 
 [ext_resource type="PackedScene" uid="uid://cw760515kuynd" path="res://Scenes/laser.tscn" id="1_8c0lf"]
 [ext_resource type="Script" uid="uid://dysoglmxvh54q" path="res://Scripts/UI/pause_menu.gd" id="3_6phgx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckpae5oh4ynu5" path="res://Scenes/Blocks/manipulatable_block.tscn" id="6_754fn"]
 [ext_resource type="Texture2D" uid="uid://dyhys5f4ke7o" path="res://Assets/GMTKTileSet.png" id="7_754fn"]
 [ext_resource type="PackedScene" uid="uid://c8shnce8qcjg1" path="res://Scenes/Entities/Characters/modular_player.tscn" id="8_bvt00"]
+[ext_resource type="PackedScene" uid="uid://dv3pcvkhhxl8b" path="res://Scenes/Blocks/spike.tscn" id="9_bvt00"]
 [ext_resource type="PackedScene" uid="uid://yjnml70k7crq" path="res://monitor.tscn" id="10_qxfql"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqgf2"]
@@ -66,13 +67,13 @@ sources/0 = SubResource("TileSetAtlasSource_oqgf2")
 
 [sub_resource type="Curve2D" id="Curve2D_bvt00"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_oqgf2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32)
 }
 point_count = 2
 
@@ -160,7 +161,7 @@ position = Vector2(259, 52)
 curve = SubResource("Curve2D_bvt00")
 
 [node name="ManipulatableBlock2" parent="Manipulating_block" instance=ExtResource("6_754fn")]
-position = Vector2(517, 4)
+position = Vector2(435, 4)
 curve = SubResource("Curve2D_oqgf2")
 
 [node name="ModularPlayer" parent="." instance=ExtResource("8_bvt00")]
@@ -178,6 +179,26 @@ position = Vector2(307, 37)
 
 [node name="destructible_block3" parent="destructible_blocks" instance=ExtResource("5_wqkje")]
 position = Vector2(307, 52)
+
+[node name="spikes" type="Node" parent="."]
+
+[node name="Spike" parent="spikes" instance=ExtResource("9_bvt00")]
+position = Vector2(83, 20)
+
+[node name="Spike2" parent="spikes" instance=ExtResource("9_bvt00")]
+position = Vector2(67, 20)
+
+[node name="Spike3" parent="spikes" instance=ExtResource("9_bvt00")]
+position = Vector2(467, 52)
+
+[node name="Spike4" parent="spikes/Spike3" instance=ExtResource("9_bvt00")]
+position = Vector2(-16, 0)
+
+[node name="Spike4" parent="spikes" instance=ExtResource("9_bvt00")]
+position = Vector2(499, 68)
+
+[node name="Spike4" parent="spikes/Spike4" instance=ExtResource("9_bvt00")]
+position = Vector2(-16, 0)
 
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Back  to game" to="CanvasLayer/pause_menu" method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Exit" to="CanvasLayer/pause_menu" method="_on_exit_pressed"]
