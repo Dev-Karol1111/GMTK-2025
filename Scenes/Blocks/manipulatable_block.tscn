@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckpae5oh4ynu5"]
 
-[ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="1_6dxnc"]
 [ext_resource type="Script" uid="uid://8xofg1lkndpu" path="res://Scripts/Entities/Blocks/manipulatable_block.gd" id="1_28sp4"]
+[ext_resource type="Texture2D" uid="uid://dsex4ooymb3p7" path="res://Assets/blocks/BreakableBlock.png" id="2_28sp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4nwr"]
-size = Vector2(19, 18)
+size = Vector2(16, 16)
 
 [node name="ManipulatableBlock" type="Path2D" node_paths=PackedStringArray("path")]
 script = ExtResource("1_28sp4")
@@ -15,8 +15,8 @@ speed = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Block"]
 modulate = Color(0.83951, 0.439034, 3.85046e-07, 1)
-scale = Vector2(0.149414, 0.144043)
-texture = ExtResource("1_6dxnc")
+position = Vector2(4.76837e-07, 0)
+texture = ExtResource("2_28sp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
 shape = SubResource("RectangleShape2D_d4nwr")

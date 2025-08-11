@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bujxs1j3aqkt6"
-path="res://.godot/imported/destructible.png-c616f50919493f0a2739daebb1054f34.ctex"
+path="res://.godot/imported/destructible.png-e5fe8be244301cd8afd387a9581539a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/destructible.png"
-dest_files=["res://.godot/imported/destructible.png-c616f50919493f0a2739daebb1054f34.ctex"]
+source_file="res://Assets/blocks/destructible.png"
+dest_files=["res://.godot/imported/destructible.png-e5fe8be244301cd8afd387a9581539a0.ctex"]
 
 [params]
 

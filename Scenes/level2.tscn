@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://daa03fcy2nq0v" path="res://Assets/healthbar_under.png" id="5_ca0bt"]
 [ext_resource type="Texture2D" uid="uid://ddekq3jhoc1op" path="res://Assets/healthbar_progress.png" id="6_yj6rp"]
 [ext_resource type="Script" uid="uid://c04xm47tgvav6" path="res://Scripts/Entities/Player/health_bar.gd" id="7_orbd0"]
-[ext_resource type="Texture2D" uid="uid://bbkycqfnvl6ie" path="res://Assets/GMTKTileSet.png" id="8_5flq6"]
+[ext_resource type="Texture2D" uid="uid://dyhys5f4ke7o" path="res://Assets/GMTKTileSet.png" id="8_5flq6"]
 [ext_resource type="Texture2D" uid="uid://dl10mmjo1vwbp" path="res://Assets/Drone.png" id="9_051s1"]
 [ext_resource type="Texture2D" uid="uid://da2854ync4rft" path="res://Assets/Roomba.png" id="10_in4v8"]
 [ext_resource type="Texture2D" uid="uid://rdn36dk0majh" path="res://Assets/Sprite-0009-export.png" id="11_mu7lp"]
@@ -230,7 +230,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 0.866625, 0.478399, 1, 1, 0.781741, 0.6
 
 [node name="Main" type="Node2D"]
 
-[node name="destructible_block" parent="." groups=["Destructible"] instance=ExtResource("1_mtqcm")]
+[node name="destructible_block" parent="." instance=ExtResource("1_mtqcm")]
 position = Vector2(176, 238)
 
 [node name="destructible_block" parent="destructible_block" instance=ExtResource("1_mtqcm")]
