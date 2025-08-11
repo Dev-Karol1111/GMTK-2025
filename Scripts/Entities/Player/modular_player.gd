@@ -10,6 +10,8 @@ extends CharacterBody2D
 @export var manipulate_component: ManipulateComponent
 @export var health_component: HealthComponent
 
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 var loop := 1
 
 func _ready() -> void:

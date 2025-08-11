@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddekq3jhoc1op"
-path="res://.godot/imported/healthbar_progress.png-e24a36d053e10268fff9a5983b6496e5.ctex"
+uid="uid://dsex4ooymb3p7"
+path="res://.godot/imported/BreakableBlock.png-ee43bebcb764556441af14352b4c9a2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/healthbar_progress.png"
-dest_files=["res://.godot/imported/healthbar_progress.png-e24a36d053e10268fff9a5983b6496e5.ctex"]
+source_file="res://Assets/blocks/BreakableBlock.png"
+dest_files=["res://.godot/imported/BreakableBlock.png-ee43bebcb764556441af14352b4c9a2b.ctex"]
 
 [params]
 

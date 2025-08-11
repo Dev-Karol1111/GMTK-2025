@@ -1,8 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cd2m4d576ux7"]
 
 [ext_resource type="Script" uid="uid://3u0u0hmpfwcp" path="res://Scripts/UI/main_menu.gd" id="1_gvx18"]
-[ext_resource type="Theme" uid="uid://dex4gniyu8r83" path="res://Themes/game_theme.tres" id="2_or6mk"]
-[ext_resource type="Texture2D" uid="uid://dyhys5f4ke7o" path="res://Assets/GMTKTileSet.png" id="3_gvx18"]
 
 [sub_resource type="Gradient" id="Gradient_erv1k"]
 interpolation_mode = 1

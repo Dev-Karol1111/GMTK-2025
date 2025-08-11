@@ -10,6 +10,22 @@ extends Node
 
 func handle_horizontal_movement(body: CharacterBody2D, direction: float)-> void:
 	var velocity_change_speed: float = 0.0
+	
+	if direction:
+		if body.is_on_floor():
+			body.sprite.play("walk")
+		else:
+			body.sprite.play("jump")
+		if direction > 0:
+			body.sprite.flip_h = false
+		else:
+			body.sprite.flip_h = true
+	else:
+		if body.is_on_floor():
+			body.sprite.play("idle")
+		else:
+			body.sprite.play("jump")
+	
 	if body.is_on_floor():
 		velocity_change_speed = ground_accel_speed if direction != 0 else ground_decel_speed
 	else:
