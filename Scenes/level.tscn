@@ -67,7 +67,7 @@ sources/0 = SubResource("TileSetAtlasSource_oqgf2")
 
 [sub_resource type="Curve2D" id="Curve2D_bvt00"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, -12)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, -14)
 }
 point_count = 2
 
@@ -80,10 +80,10 @@ point_count = 2
 [node name="Main" type="Node2D"]
 
 [node name="Laser2" parent="." instance=ExtResource("1_8c0lf")]
-position = Vector2(579, 14)
+position = Vector2(579, 16)
 
 [node name="Laser" parent="." instance=ExtResource("1_8c0lf")]
-position = Vector2(562, 14)
+position = Vector2(561, 16)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -168,21 +168,21 @@ mode = "Ping-Pong"
 [node name="ModularPlayer" parent="." instance=ExtResource("8_bvt00")]
 
 [node name="Camera2D" type="Camera2D" parent="ModularPlayer"]
-zoom = Vector2(3, 3)
+zoom = Vector2(5, 5)
 
 [node name="destructible_blocks" type="Node" parent="."]
 
 [node name="destructible_block" parent="destructible_blocks" instance=ExtResource("5_wqkje")]
-position = Vector2(307, 22)
+position = Vector2(307, 23)
 
 [node name="destructible_block4" parent="destructible_blocks" instance=ExtResource("5_wqkje")]
-position = Vector2(307, 6)
+position = Vector2(307, 8)
 
 [node name="destructible_block2" parent="destructible_blocks" instance=ExtResource("5_wqkje")]
-position = Vector2(307, 37)
+position = Vector2(307, 38)
 
 [node name="destructible_block3" parent="destructible_blocks" instance=ExtResource("5_wqkje")]
-position = Vector2(307, 52)
+position = Vector2(307, 53)
 
 [node name="spikes" type="Node" parent="."]
 

@@ -19,6 +19,7 @@ position = Vector2(4.76837e-07, 0)
 texture = ExtResource("2_28sp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+visible = false
 shape = SubResource("RectangleShape2D_d4nwr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]

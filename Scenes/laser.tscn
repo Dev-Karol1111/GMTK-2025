@@ -42,6 +42,7 @@ animation = &"on"
 autoplay = "on"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_krwe7")
 
