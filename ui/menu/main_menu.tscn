@@ -4,23 +4,20 @@
 
 [sub_resource type="Gradient" id="Gradient_erv1k"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.487654)
-colors = PackedColorArray(0.490715, 0.1024, 0.127591, 1, 0.809386, 0.391672, 0.438593, 1)
+offsets = PackedFloat32Array(0, 0.485714)
+colors = PackedColorArray(0.235294, 0.235294, 0.235294, 1, 0.793365, 0.540502, 1.54018e-06, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_28flt"]
-noise_type = 3
+noise_type = 5
 seed = 1
-frequency = 0.0366
-offset = Vector3(-233.33, 0, 0)
-fractal_type = 2
-fractal_lacunarity = 1.0
-fractal_gain = 2.0
-fractal_weighted_strength = 0.5
+frequency = 0.0251
+fractal_octaves = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_37pjl"]
 width = 1152
 height = 648
 generate_mipmaps = false
+seamless = true
 color_ramp = SubResource("Gradient_erv1k")
 noise = SubResource("FastNoiseLite_28flt")
 
@@ -30,7 +27,7 @@ atlas = SubResource("NoiseTexture2D_37pjl")
 [sub_resource type="Gradient" id="Gradient_48xlc"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.18251, 0.48289, 0.524715, 0.942966)
-colors = PackedColorArray(0.207843, 0.501961, 0.0745098, 0.784314, 0, 0.658824, 0.392157, 0.784314, 0.905882, 0.709804, 0.384314, 0.784314, 0.396078, 0.639216, 1, 0.588235, 1, 1, 1, 0.784314)
+colors = PackedColorArray(0.207843, 0.501961, 0.0745098, 1, 0, 0.658824, 0.392157, 1, 0.905882, 0.709804, 0.384314, 1, 0.396078, 0.639216, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1ehe0"]
 noise_type = 3
@@ -42,12 +39,13 @@ noise = SubResource("FastNoiseLite_1ehe0")
 
 [sub_resource type="Gradient" id="Gradient_n45e2"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.885932, 1)
-colors = PackedColorArray(0.905232, 0.812567, 0.956667, 1, 0.376471, 0.117647, 0.529412, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.924901)
+colors = PackedColorArray(0.905232, 0.812567, 0.956667, 1, 0.376471, 0.117647, 0.529412, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_opfnp"]
 gradient = SubResource("Gradient_n45e2")
-width = 128
+width = 100
+height = 100
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
@@ -72,7 +70,8 @@ grow_vertical = 2
 
 [node name="Parallax2D" type="Parallax2D" parent="CenterContainer"]
 repeat_size = Vector2(1152, 648)
-autoscroll = Vector2(-5, -10)
+autoscroll = Vector2(-30, 0)
+repeat_times = 3
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/Parallax2D"]
 offset_right = 40.0
@@ -127,51 +126,70 @@ grow_vertical = 0
 layout_mode = 2
 texture = SubResource("NoiseTexture2D_ce3w2")
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_opfnp")
-stretch_mode = 5
-
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer"]
 layout_mode = 2
+texture = SubResource("GradientTexture2D_opfnp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.408078, 0.000144055, 0.421026, 1)
+theme_override_colors/font_color = Color(0.995739, 0.567824, 1, 1)
+theme_override_constants/shadow_offset_y = 10
 theme_override_font_sizes/font_size = 30
 text = "Made by:"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.900582, 0.190518, 1)
+theme_override_constants/shadow_offset_y = 10
 text = "FrozenDev
 karol"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Control/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.898039, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 10
 text = "Lucas
 Droid"
 
-[node name="Label4" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="Control/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.898039, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 10
 text = "Neferthyt_o
 Krishna"
 
-[node name="Label4" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+[node name="Label4" type="Label" parent="Control/MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.898039, 0.192157, 1)
+theme_override_constants/shadow_offset_y = 10
 text = "Ray"
 horizontal_alignment = 1
 

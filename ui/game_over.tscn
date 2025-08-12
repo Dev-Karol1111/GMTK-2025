@@ -2,30 +2,27 @@
 
 [ext_resource type="Script" uid="uid://c7xmyggjaqljf" path="res://Scripts/game_over.gd" id="1_oo8kp"]
 
-[sub_resource type="Gradient" id="Gradient_u0541"]
+[sub_resource type="Gradient" id="Gradient_oo8kp"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.487654)
-colors = PackedColorArray(0.490715, 0.1024, 0.127591, 1, 0.809386, 0.391672, 0.438593, 1)
+offsets = PackedFloat32Array(0, 0.485714)
+colors = PackedColorArray(0.235294, 0.235294, 0.235294, 1, 0.793365, 0.540502, 1.54018e-06, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_oo8kp"]
-noise_type = 3
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5eixk"]
+noise_type = 5
 seed = 1
-frequency = 0.0366
-offset = Vector3(-233.33, 0, 0)
-fractal_type = 2
-fractal_lacunarity = 1.0
-fractal_gain = 2.0
-fractal_weighted_strength = 0.5
+frequency = 0.0251
+fractal_octaves = 2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oo8kp"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_37pjl"]
 width = 1152
 height = 648
 generate_mipmaps = false
-color_ramp = SubResource("Gradient_u0541")
-noise = SubResource("FastNoiseLite_oo8kp")
+seamless = true
+color_ramp = SubResource("Gradient_oo8kp")
+noise = SubResource("FastNoiseLite_5eixk")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1fe5"]
-atlas = SubResource("NoiseTexture2D_oo8kp")
+atlas = SubResource("NoiseTexture2D_37pjl")
 
 [node name="Game Over" type="Control"]
 layout_mode = 3
@@ -36,21 +33,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oo8kp")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 2293.0
-offset_bottom = 1338.0
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1152, 648)
+autoscroll = Vector2(-30, 0)
+repeat_times = 3
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D"]
+offset_right = 40.0
+offset_bottom = 40.0
 texture = SubResource("AtlasTexture_j1fe5")
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -106.5
-offset_right = 106.5
-offset_bottom = 103.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.898039, 0.709804, 0.207843, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
 theme_override_colors/font_outline_color = Color(0.0745098, 0.0470588, 0.00392157, 1)
@@ -60,23 +71,31 @@ theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 75
 text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 233.0
-offset_top = 445.0
-offset_right = 980.0
-offset_bottom = 582.0
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
-[node name="Exit" type="Button" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Exit" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "EXIT"
 
-[node name="Back to menu" type="Button" parent="HBoxContainer"]
+[node name="Back to menu" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "BACK TO MENU"
 
-[connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="HBoxContainer/Back to menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Back to menu" to="." method="_on_back_to_menu_pressed"]
