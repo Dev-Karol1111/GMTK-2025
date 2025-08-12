@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
-@export_subgroup("Nodes")
+@export_group("Nodes")
+@export_subgroup("Abilities")
+@export var jump_component: AdvancedJumpComponent
+@export var dash_component: DashComponent
+@export var manipulate_component: ManipulateComponent
+@export_subgroup("player")
 @export var gravity_component: GravityComponent
 @export var input_component: InputComponent
 @export var movement_component: MovementComponent
-@export var jump_component: AdvancedJumpComponent
-@export var dash_component: DashComponent
 @export var rigidbody_component: RigidbodyComponent
-@export var manipulate_component: ManipulateComponent
 @export var health_component: HealthComponent
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -29,7 +31,8 @@ func _physics_process(delta: float)-> void:
 	rigidbody_component.handle_forces(self)
 
 func damage(amt: float):
-	health_component.dmg(amt)
+	if health_component.can_damage:
+		health_component.dmg(amt, input_component.input_horizontal)
 
 func _on_health_updated(prev, amt):
 	if amt == 0:
