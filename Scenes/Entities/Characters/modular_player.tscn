@@ -107,15 +107,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component", "dash_component", "rigidbody_component", "manipulate_component", "health_component")]
+[node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("jump_component", "dash_component", "manipulate_component", "gravity_component", "input_component", "movement_component", "rigidbody_component", "health_component")]
 script = ExtResource("1_pasck")
+jump_component = NodePath("AdvancedJumpComponent")
+dash_component = NodePath("DashComponent")
+manipulate_component = NodePath("ManipulateComponent")
 gravity_component = NodePath("GravityComponent")
 input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
-jump_component = NodePath("AdvancedJumpComponent")
-dash_component = NodePath("DashComponent")
 rigidbody_component = NodePath("RigidbodyComponent")
-manipulate_component = NodePath("ManipulateComponent")
 health_component = NodePath("HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
