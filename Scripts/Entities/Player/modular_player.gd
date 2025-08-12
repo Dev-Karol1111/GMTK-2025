@@ -31,6 +31,8 @@ func _physics_process(delta: float)-> void:
 	rigidbody_component.handle_forces(self)
 
 func damage(amt: float):
+	if dash_component.isDashing:
+		return
 	if health_component.can_damage:
 		health_component.dmg(amt, input_component.input_horizontal)
 

@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0pxa70ep0hro"]
+[gd_scene load_steps=5 format=3 uid="uid://b0pxa70ep0hro"]
 
-[ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="1_35a55"]
 [ext_resource type="Script" uid="uid://b05g4nmehxdgd" path="res://Scripts/exit.gd" id="1_ljsmn"]
+
+[sub_resource type="Gradient" id="Gradient_35a55"]
+colors = PackedColorArray(0, 0.330024, 0.780151, 1, 0.174702, 0.923396, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ljsmn"]
+gradient = SubResource("Gradient_35a55")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0.1)
+metadata/_snap_enabled = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljsmn"]
 size = Vector2(20, 30)
@@ -9,10 +17,13 @@ size = Vector2(20, 30)
 [node name="exit" type="Area2D"]
 script = ExtResource("1_ljsmn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.38419e-07, -4.76837e-07)
+[node name="Sprite2D" type="TextureRect" parent="."]
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 114.0
+offset_bottom = 111.0
 scale = Vector2(0.161562, 0.239687)
-texture = ExtResource("1_35a55")
+texture = SubResource("GradientTexture2D_ljsmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ljsmn")
