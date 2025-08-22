@@ -10,7 +10,8 @@ func _ready() -> void:
 	currentState = invisible;
 
 func _process(delta):
-	print(currentState);
+	pass
+	#print(currentState);
 
 func _on_body_entered(body: Node2D) -> void:
 	if currentState == invisible:

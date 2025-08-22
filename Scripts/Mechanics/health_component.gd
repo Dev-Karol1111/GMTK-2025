@@ -17,8 +17,8 @@ func heal(amt: float):
 	health_updated.emit(prev_health, health)
 
 func dmg(amt:float, direction: float):
-	print("direction: ")
-	print(direction)
+	#print("direction: ")
+	#print(direction)
 	heal(-amt)
 	if health == 0:
 		return

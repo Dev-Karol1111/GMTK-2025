@@ -1,22 +1,30 @@
 extends Area2D
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var animator: AnimationComponent
+
+var wait_time = 3
+@onready var is_on = true
 
 func _ready() -> void:
+	animator.play("on")
 	collision_shape.disabled = false
-	loop()
+	GameStateManager.core_timer.timeout.connect(stupid_function)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.is_in_group("Player"):
 		body.damage(1)
 
-# Musi być async, bo używasz await
-func loop() -> void:
-	while true:
-		sprite.play("on")
-		collision_shape.disabled = false
-		await get_tree().create_timer(5.0).timeout
-		sprite.play("off")
-		collision_shape.disabled = true
-		await get_tree().create_timer(5.0).timeout
+func stupid_function():
+	if wait_time>0:
+		wait_time -= 1
+	else:
+		wait_time = 3
+		if is_on:
+			animator.play("off")
+			collision_shape.disabled = true
+		else:
+			animator.play("on")
+			collision_shape.disabled = false
+		is_on = !is_on
+			

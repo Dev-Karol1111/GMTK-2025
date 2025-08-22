@@ -27,7 +27,7 @@ func _ready():
 func manipulate():
 	if is_moving:
 		return
-	print(mode, " Manipulate")
+	#print(mode, " Manipulate")
 	is_moving = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -107,4 +107,4 @@ func advance_index():
 				else:
 					curr_ind -= 1
 	t_dist = stop_distances[curr_ind]
-	print(curr_ind," ", mode)
+	#print(curr_ind," ", mode)

@@ -46,6 +46,7 @@ enabled=PackedStringArray()
 Destructible=""
 Killable=""
 Manipulatable=""
+Player=""
 
 [gui]
 

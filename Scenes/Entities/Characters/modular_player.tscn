@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c8shnce8qcjg1"]
+[gd_scene load_steps=28 format=3 uid="uid://c8shnce8qcjg1"]
 
 [ext_resource type="Script" uid="uid://yiq1rsrqelkx" path="res://Scripts/Entities/Player/modular_player.gd" id="1_pasck"]
 [ext_resource type="PackedScene" uid="uid://dh0iwcla82oxe" path="res://Scenes/Components/gravity_component.tscn" id="3_pquip"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d322q8a7ysijw" path="res://Scenes/Components/dash_component.tscn" id="7_jore7"]
 [ext_resource type="PackedScene" uid="uid://b0wnb03ylf8b4" path="res://Scenes/Components/rigidbody_component.tscn" id="8_34l16"]
 [ext_resource type="PackedScene" uid="uid://bn4i636inu13d" path="res://Scenes/Components/HealthComponent.tscn" id="9_db018"]
+[ext_resource type="PackedScene" uid="uid://bhlt6syno6tsc" path="res://Scenes/Components/animation_component.tscn" id="10_btw0w"]
 [ext_resource type="PackedScene" uid="uid://bl1faxrpgk3n0" path="res://Scenes/Components/manipulate_component.tscn" id="10_db018"]
 [ext_resource type="Texture2D" uid="uid://cw1mbu2oh2o3l" path="res://Assets/Robot.png" id="11_fo4vm"]
 [ext_resource type="Script" uid="uid://pi1011ph7atk" path="res://Scripts/Entities/Player/modular_health.gd" id="11_u2hr2"]
@@ -107,7 +108,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("jump_component", "dash_component", "manipulate_component", "gravity_component", "input_component", "movement_component", "rigidbody_component", "health_component")]
+[node name="ModularPlayer" type="CharacterBody2D" node_paths=PackedStringArray("jump_component", "dash_component", "manipulate_component", "gravity_component", "input_component", "movement_component", "rigidbody_component", "health_component", "animation_component") groups=["Player"]]
 script = ExtResource("1_pasck")
 jump_component = NodePath("AdvancedJumpComponent")
 dash_component = NodePath("DashComponent")
@@ -117,6 +118,7 @@ input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
 rigidbody_component = NodePath("RigidbodyComponent")
 health_component = NodePath("HealthComponent")
+animation_component = NodePath("AnimationComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
@@ -140,10 +142,13 @@ boost = true
 
 [node name="InputComponent" parent="." instance=ExtResource("4_004tn")]
 
-[node name="MovementComponent" parent="." instance=ExtResource("5_tnlsu")]
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("animator") instance=ExtResource("5_tnlsu")]
 speed = 50.0
 ground_accel_speed = 10.0
 ground_decel_speed = 5.0
+air_accel_speed = null
+air_decel_speed = null
+animator = NodePath("../AnimationComponent")
 
 [node name="AdvancedJumpComponent" parent="." instance=ExtResource("6_tnlsu")]
 jump_velocity = -250.0
@@ -158,6 +163,9 @@ health = 3.0
 limit = Vector2(0, 3)
 
 [node name="ManipulateComponent" parent="." instance=ExtResource("10_db018")]
+
+[node name="AnimationComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("10_btw0w")]
+sprite = NodePath("../AnimatedSprite2D")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." node_paths=PackedStringArray("h1", "h2", "h3")]
 anchors_preset = 7
@@ -195,7 +203,7 @@ color = Color(0.784314, 0, 0.247059, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_btw0w")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [connection signal="body_entered" from="DashArea2D" to="DashComponent" method="_on_area_entered"]

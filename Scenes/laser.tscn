@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw760515kuynd"]
+[gd_scene load_steps=8 format=3 uid="uid://cw760515kuynd"]
 
 [ext_resource type="Script" uid="uid://d2cip71suq4m0" path="res://Scripts/laser.gd" id="1_mou6w"]
 [ext_resource type="Texture2D" uid="uid://di37l3ybe2boj" path="res://Assets/laser.png" id="1_r1bh0"]
+[ext_resource type="PackedScene" uid="uid://bhlt6syno6tsc" path="res://Scenes/Components/animation_component.tscn" id="3_3pc01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mou6w"]
 atlas = ExtResource("1_r1bh0")
@@ -33,8 +34,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krwe7"]
 size = Vector2(9, 50)
 
-[node name="Laser" type="Area2D"]
+[node name="Laser" type="Area2D" node_paths=PackedStringArray("animator")]
 script = ExtResource("1_mou6w")
+animator = NodePath("AnimationComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c8ure")
@@ -45,5 +47,8 @@ autoplay = "on"
 visible = false
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_krwe7")
+
+[node name="AnimationComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_3pc01")]
+sprite = NodePath("../AnimatedSprite2D")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
