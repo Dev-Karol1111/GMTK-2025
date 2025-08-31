@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://dex4gniyu8r83"]
 
 [ext_resource type="StyleBox" uid="uid://dtqyk2nh3mh68" path="res://Themes/btn_style_box_focus.tres" id="1_0xr0m"]
-[ext_resource type="FontFile" uid="uid://uetq1vkilmkp" path="res://Assets/Fonts/Jersey10-Regular.ttf" id="1_kg3qs"]
 [ext_resource type="StyleBox" uid="uid://blofeaxqwyhok" path="res://Themes/btn_style_box_hover.tres" id="1_qh1o2"]
+[ext_resource type="FontFile" uid="uid://dcmdfmfypt1dx" path="res://Assets/Fonts/Micro5-Regular.ttf" id="1_xs4hq"]
 [ext_resource type="StyleBox" uid="uid://cqi58ktogvlpv" path="res://Themes/btn_style_box_flat.tres" id="2_v6q4r"]
 [ext_resource type="StyleBox" uid="uid://crly3j5mqblum" path="res://Themes/btn_style_box_pressed.tres" id="3_v6q4r"]
 
@@ -12,15 +12,15 @@ grow_end = 50.0
 thickness = 3
 
 [resource]
-Button/colors/font_color = Color(0.180392, 0.180392, 0.203922, 1)
+default_font = ExtResource("1_xs4hq")
+Button/colors/font_color = Color(0.93408, 0.93408, 0.93408, 1)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0.0177324, 0.0177324, 0.0177324, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 3
+Button/constants/outline_size = 5
 Button/font_sizes/font_size = 25
-Button/fonts/font = ExtResource("1_kg3qs")
 Button/styles/focus = ExtResource("1_0xr0m")
 Button/styles/hover = ExtResource("1_qh1o2")
 Button/styles/normal = ExtResource("2_v6q4r")
@@ -30,6 +30,6 @@ Label/colors/font_color = Color(0.270588, 0.266667, 0.309804, 1)
 Label/colors/font_outline_color = Color(0.129412, 0.129412, 0.137255, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.196078)
 Label/constants/outline_size = 15
-Label/font_sizes/font_size = 30
-Label/fonts/font = ExtResource("1_kg3qs")
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_xs4hq")
 VBoxContainer/constants/separation = 5
