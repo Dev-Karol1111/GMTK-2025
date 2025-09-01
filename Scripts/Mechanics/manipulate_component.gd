@@ -5,7 +5,7 @@ signal manipulate
 
 var enable := true
 
-func manipulate_objects(body: CharacterBody2D, want_to_manipulate: bool):
+func manipulate_objects(_body: CharacterBody2D, want_to_manipulate: bool):
 	if want_to_manipulate and enable:
 		manipulate.emit()
 

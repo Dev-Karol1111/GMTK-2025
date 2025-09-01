@@ -1,7 +1,10 @@
 extends Control
 
-var level_scene = preload("res://Scenes/level.tscn")
-var settings_scene = preload("res://ui/settings/settings.tscn")
+@export var level_scene:PackedScene
+@export var settings_scene:PackedScene
+#"res://Scenes/level.tscn"
+#"res://ui/settings/settings.tscn"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

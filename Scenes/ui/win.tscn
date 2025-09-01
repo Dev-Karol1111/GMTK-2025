@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c21fpou767faq"]
 
-[ext_resource type="Script" uid="uid://btidkyqtgxiwn" path="res://Scripts/UI/win.gd" id="1_dmagx"]
-[ext_resource type="Texture2D" uid="uid://b8ck3368s3j50" path="res://Assets/Sprites/UI/background-title-screen.png" id="2_w7cml"]
+[ext_resource type="Script" uid="uid://btidkyqtgxiwn" path="res://Scripts/UI/win.gd" id="1_ut70g"]
+[ext_resource type="Texture2D" uid="uid://b8ck3368s3j50" path="res://Assets/Sprites/UI/background-title-screen.png" id="2_o836s"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dmagx")
+script = ExtResource("1_ut70g")
 
 [node name="Background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1152, 648)
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_w7cml")
+texture = ExtResource("2_o836s")
 expand_mode = 3
 stretch_mode = 6
 

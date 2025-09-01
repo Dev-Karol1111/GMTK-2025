@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dll2j1egldgb8"]
+[gd_scene load_steps=16 format=4 uid="uid://dll2j1egldgb8"]
 
 [ext_resource type="PackedScene" uid="uid://cw760515kuynd" path="res://Scenes/Entities/Environment/Hazards/laser.tscn" id="1_8c0lf"]
 [ext_resource type="Script" uid="uid://dysoglmxvh54q" path="res://Scripts/UI/pause_menu.gd" id="3_6phgx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dv3pcvkhhxl8b" path="res://Scenes/Entities/Environment/Hazards/spike.tscn" id="9_bvt00"]
 [ext_resource type="PackedScene" uid="uid://b7i0754derngf" path="res://Scenes/Entities/Characters/Enemies/drone.tscn" id="10_oqgf2"]
 [ext_resource type="PackedScene" uid="uid://yjnml70k7crq" path="res://Scenes/Entities/Characters/Neutral/monitor.tscn" id="10_qxfql"]
+[ext_resource type="AudioStream" uid="uid://b2h52saym0omp" path="res://Assets/Music/Level1.wav" id="11_j3yal"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqgf2"]
 texture = ExtResource("7_754fn")
@@ -217,6 +218,10 @@ zoom = Vector2(3, 3)
 
 [node name="Drone" parent="." instance=ExtResource("10_oqgf2")]
 position = Vector2(112, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_j3yal")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Back  to game" to="CanvasLayer/pause_menu" method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause_menu/VBoxContainer/Exit" to="CanvasLayer/pause_menu" method="_on_exit_pressed"]

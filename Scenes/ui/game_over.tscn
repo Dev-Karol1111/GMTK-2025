@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cb6ms6euf75c7"]
 
-[ext_resource type="Script" uid="uid://c7xmyggjaqljf" path="res://Scripts/UI/game_over.gd" id="1_76r4p"]
-[ext_resource type="Texture2D" uid="uid://b8ck3368s3j50" path="res://Assets/Sprites/UI/background-title-screen.png" id="2_flebf"]
+[ext_resource type="Script" uid="uid://c7xmyggjaqljf" path="res://Scripts/UI/game_over.gd" id="1_wpaxx"]
+[ext_resource type="Texture2D" uid="uid://b8ck3368s3j50" path="res://Assets/Sprites/UI/background-title-screen.png" id="2_jqelu"]
 
 [node name="Game Over" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_76r4p")
+script = ExtResource("1_wpaxx")
 
 [node name="Background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1152, 648)
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_flebf")
+texture = ExtResource("2_jqelu")
 expand_mode = 3
 stretch_mode = 6
 

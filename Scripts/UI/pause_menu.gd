@@ -9,7 +9,7 @@ signal unpaused
 func _ready():
 	pause_menu.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause menu"):
 		pause_menu.visible = not pause_menu.visible
 		is_pause_menu_opened = pause_menu.visible

@@ -42,8 +42,8 @@ func damage(amt: float):
 	if health_component.can_damage:
 		health_component.dmg(amt, input_component.input_horizontal)
 
-func _on_health_updated(prev, amt):
-	if amt == 0:
+func _on_health_updated(_prev, _amt):
+	if _amt == 0:
 		get_tree().change_scene_to_file("res://ui/game_over.tscn")
 
 func set_ability(iteration: int):

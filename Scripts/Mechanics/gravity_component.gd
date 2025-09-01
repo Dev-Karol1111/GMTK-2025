@@ -16,5 +16,5 @@ func handle_gravity(body: CharacterBody2D, delta: float)-> void:
 	
 	is_falling = body.velocity.y >0 and not body.is_on_floor()
 
-func _process(delta):
+func _process(_delta):
 	pass
