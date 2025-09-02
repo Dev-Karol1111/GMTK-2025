@@ -15,6 +15,7 @@ class_name Modular_Player
 @export var animation_component:AnimationComponent
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var ability_label: Label = $"../CanvasLayer/ability"
 
 func _ready() -> void:
 	GameStateManager.player=self
@@ -49,14 +50,17 @@ func _on_health_updated(_prev, _amt):
 func set_ability(iteration: int):
 	match iteration:
 		0:
+			ability_label.text = "Ability: Double Jump"
 			jump_component.jumps = 2
 			dash_component.enable = false
 			manipulate_component.enable = false
 		1:
+			ability_label.text = "Ability: Block Manipulation"
 			jump_component.jumps = 1
 			dash_component.enable = false
 			manipulate_component.enable = true
 		2:
+			ability_label.text = "Ability: Dash"
 			jump_component.jumps = 1
 			dash_component.enable = true
 			manipulate_component.enable = false
