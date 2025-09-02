@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckpae5oh4ynu5"]
+
+[ext_resource type="Script" uid="uid://8xofg1lkndpu" path="res://Scripts/Entities/Environment/Blocks/manipulatable_block.gd" id="1_28sp4"]
+[ext_resource type="Texture2D" uid="uid://dsex4ooymb3p7" path="res://Assets/Sprites/Environment/Blocks/BreakableBlock.png" id="2_28sp4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4nwr"]
+size = Vector2(16, 16)
+
+[node name="ManipulatableBlock" type="Path2D" node_paths=PackedStringArray("path")]
+script = ExtResource("1_28sp4")
+path = NodePath("PathFollow2D")
+speed = 30.0
+
+[node name="Block" type="AnimatableBody2D" parent="." groups=["Manipulatable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+modulate = Color(0.83951, 0.439034, 3.85046e-07, 1)
+position = Vector2(4.76837e-07, 0)
+texture = ExtResource("2_28sp4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+visible = false
+shape = SubResource("RectangleShape2D_d4nwr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = -1.5708
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../Block")
+update_rotation = false

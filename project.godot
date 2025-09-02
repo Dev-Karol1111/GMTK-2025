@@ -41,15 +41,30 @@ GameStateManager="*res://Scripts/Globals/GameStateManager.gd"
 
 enabled=PackedStringArray()
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "green",
+"res://Assets/Fonts/": "green",
+"res://Assets/Music/": "green",
+"res://Assets/Sprites/": "green",
+"res://Scenes/": "red",
+"res://Scripts/": "purple",
+"res://Themes/": "blue"
+}
+
 [global_group]
 
 Destructible=""
 Killable=""
 Manipulatable=""
+Player=""
 
 [gui]
 
 theme/custom="uid://dex4gniyu8r83"
+theme/custom_font="uid://dcmdfmfypt1dx"
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 

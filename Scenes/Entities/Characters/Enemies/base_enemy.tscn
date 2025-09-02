@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkabndrqqw4l6"]
+
+[ext_resource type="Script" uid="uid://byohf8pqj5tkv" path="res://Scripts/Entities/Characters/Enemies/enemy_movement.gd" id="1_2mbgu"]
+[ext_resource type="Texture2D" uid="uid://13fn0dfbgkt5" path="res://icon.svg" id="2_t2m80"]
+[ext_resource type="PackedScene" uid="uid://dh0iwcla82oxe" path="res://Scenes/Components/gravity_component.tscn" id="3_3xf1h"]
+[ext_resource type="PackedScene" uid="uid://b5yt5rnkt12y" path="res://Scenes/Components/movement_component.tscn" id="4_urb0h"]
+[ext_resource type="PackedScene" uid="uid://ctrowwr6c6g44" path="res://Scenes/Components/basic_ai_component.tscn" id="5_urb0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(16.6275, 16.6275)
+
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "brain_component", "movement_component") groups=["Killable"]]
+script = ExtResource("1_2mbgu")
+gravity_component = NodePath("GravityComponent")
+brain_component = NodePath("BasicAiComponent")
+movement_component = NodePath("MovementComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.915247, 0.00103127, 0.152841, 1)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_t2m80")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.00196362, -0.0330882)
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="GravityComponent" parent="." instance=ExtResource("3_3xf1h")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("4_urb0h")]
+speed = 30.0
+ground_accel_speed = 10.0
+ground_decel_speed = 10.0
+
+[node name="BasicAiComponent" parent="." instance=ExtResource("5_urb0h")]

@@ -1,6 +1,9 @@
 class_name MovementComponent
 extends Node
 
+@export_category("Nodes")
+@export var animator:AnimationComponent
+
 @export_subgroup("Settings")
 @export var speed: float = 300.0
 @export var ground_accel_speed: float = 6.0
@@ -13,18 +16,18 @@ func handle_horizontal_movement(body: CharacterBody2D, direction: float)-> void:
 	
 	if direction:
 		if body.is_on_floor():
-			body.sprite.play("walk")
+			animator.play("walk")
 		else:
-			body.sprite.play("jump")
+			animator.play("jump")
 		if direction > 0:
-			body.sprite.flip_h = false
+			animator.flip(false)
 		else:
-			body.sprite.flip_h = true
+			animator.flip(true)
 	else:
 		if body.is_on_floor():
-			body.sprite.play("idle")
+			animator.play("idle")
 		else:
-			body.sprite.play("jump")
+			animator.play("jump")
 	
 	if body.is_on_floor():
 		velocity_change_speed = ground_accel_speed if direction != 0 else ground_decel_speed

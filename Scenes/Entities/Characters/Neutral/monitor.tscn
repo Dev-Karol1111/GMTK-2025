@@ -1,0 +1,159 @@
+[gd_scene load_steps=19 format=3 uid="uid://yjnml70k7crq"]
+
+[ext_resource type="Script" uid="uid://bjruwvjp674jt" path="res://Scripts/Entities/Characters/Neutral/monitor.gd" id="1_fa1fk"]
+[ext_resource type="Texture2D" uid="uid://cfdpfm2h7dw13" path="res://Assets/Sprites/Characters/Monitor/monitor.png" id="1_qh22o"]
+[ext_resource type="Texture2D" uid="uid://p8ggqjwnoha5" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0008.png" id="3_n6pra"]
+[ext_resource type="Texture2D" uid="uid://qkpjb8mcx6a2" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0007.png" id="4_guvov"]
+[ext_resource type="Texture2D" uid="uid://bp12ea6aj4hye" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0006.png" id="5_6naae"]
+[ext_resource type="Texture2D" uid="uid://t2rdpe6bvkq8" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0005.png" id="6_bco7d"]
+[ext_resource type="Texture2D" uid="uid://cpx4i0y0iuwrj" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0004.png" id="7_q6gjv"]
+[ext_resource type="Texture2D" uid="uid://bquh3ow1nylm" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0003.png" id="8_yralg"]
+[ext_resource type="Texture2D" uid="uid://do0b7jsmvpakb" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0002.png" id="9_e2f1t"]
+[ext_resource type="Texture2D" uid="uid://cvcpfxnn4lm0x" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0001.png" id="10_60eiu"]
+[ext_resource type="Texture2D" uid="uid://b11nyfdgf2sqy" path="res://Assets/Sprites/Characters/Monitor/teleport/monitor_teleport0000.png" id="11_urrjm"]
+[ext_resource type="Texture2D" uid="uid://cv3280mcvqmib" path="res://Assets/Sprites/Characters/Monitor/smug/smug_closed_mouth.png" id="12_6naae"]
+[ext_resource type="Texture2D" uid="uid://br3jfr66pc0oh" path="res://Assets/Sprites/Characters/Monitor/smug/smug_open_mouth.png" id="13_bco7d"]
+[ext_resource type="PackedScene" uid="uid://bhlt6syno6tsc" path="res://Scenes/Components/animation_component.tscn" id="14_bco7d"]
+[ext_resource type="FontFile" uid="uid://b0a1x5jt3ihdq" path="res://Assets/Fonts/Tiny5-Regular.ttf" id="15_q6gjv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh22o"]
+size = Vector2(155, 103)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fa1fk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qh22o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n6pra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_guvov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6naae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bco7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q6gjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yralg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e2f1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_60eiu")
+}],
+"loop": false,
+"name": &"teleportIn",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_urrjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_60eiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e2f1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yralg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q6gjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bco7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6naae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_guvov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n6pra")
+}],
+"loop": false,
+"name": &"teleportOut",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6gjv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6naae")
+}],
+"loop": false,
+"name": &"not_talking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6naae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bco7d")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]
+
+[node name="Monitor" type="Area2D" node_paths=PackedStringArray("body_animator", "face_animator", "body_sprite", "face_sprite", "dialog_box")]
+z_index = -1
+script = ExtResource("1_fa1fk")
+body_animator = NodePath("BodyAnimationComponent")
+face_animator = NodePath("FaceAnimationComponent")
+body_sprite = NodePath("Body")
+face_sprite = NodePath("Body/face")
+dialog_box = NodePath("DialogBox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_qh22o")
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fa1fk")
+animation = &"teleportIn"
+
+[node name="face" type="AnimatedSprite2D" parent="Body"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_q6gjv")
+animation = &"talking"
+frame_progress = 0.669238
+
+[node name="BodyAnimationComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("14_bco7d")]
+sprite = NodePath("../Body")
+
+[node name="FaceAnimationComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("14_bco7d")]
+sprite = NodePath("../Body/face")
+
+[node name="DialogBox" type="RichTextLabel" parent="."]
+offset_top = -33.0
+offset_right = 1580.0
+offset_bottom = 607.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/normal_font = ExtResource("15_q6gjv")
+theme_override_font_sizes/normal_font_size = 100
+text = "Hi this is test"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_finished" from="Body" to="." method="_on_animated_sprite_2d_animation_finished"]

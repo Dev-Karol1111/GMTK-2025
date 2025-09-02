@@ -3,7 +3,7 @@ extends Node
 
 var input_horizontal: float = 0.0
 
-func _process(delta):
+func _process(_delta):
 	input_horizontal = Input.get_axis("move_left","move_right")
 
 func get_jump_input() -> bool:
@@ -17,3 +17,6 @@ func get_dash_input() -> bool:
 
 func get_manipulate_input() -> bool:
 	return Input.is_action_just_pressed("object_manipulation")
+
+func get_pause_input() -> bool:
+	return Input.is_action_just_pressed("pause menu")

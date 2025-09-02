@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://bljqyfw4itvf0"]
+
+[ext_resource type="Script" uid="uid://bee8fwaww7v43" path="res://Scripts/UI/settings.gd" id="1_a7kad"]
+[ext_resource type="Texture2D" uid="uid://b8ck3368s3j50" path="res://Assets/Sprites/UI/background-title-screen.png" id="2_qqfjn"]
+[ext_resource type="Theme" uid="uid://dex4gniyu8r83" path="res://Themes/game_theme.tres" id="3_5drc0"]
+[ext_resource type="Texture2D" uid="uid://dl10mmjo1vwbp" path="res://Assets/Sprites/Characters/Drone/Drone.png" id="4_5sp58"]
+[ext_resource type="Texture2D" uid="uid://da2854ync4rft" path="res://Assets/Sprites/Characters/Roomba/Roomba.png" id="5_phwrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fayoa"]
+bg_color = Color(0.231373, 0.231373, 0.231373, 0.25098)
+skew = Vector2(0.5, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_bottom_right = 3
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7dpk"]
+bg_color = Color(0.717647, 0.572549, 0.360784, 0.0980392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gweul"]
+bg_color = Color(0.231373, 0.231373, 0.231373, 0.52549)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7kad")
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qqfjn")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="Screen_name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_top = 51.0
+offset_right = 174.0
+offset_bottom = 154.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.898039, 0.709804, 0.207843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.196078)
+theme_override_colors/font_outline_color = Color(0.0745098, 0.0470588, 0.00392157, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 75
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -74.0
+offset_right = 550.0
+offset_bottom = 126.0
+grow_vertical = 2
+
+[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_5drc0")
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 10
+text = "FullScreen    "
+
+[node name="FullScreen" type="CheckButton" parent="VBoxContainer/Fullscreen"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = -74.0
+offset_right = -52.0
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Voulme" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2/Voulme"]
+layout_mode = 2
+theme = ExtResource("3_5drc0")
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 10
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="VBoxContainer2/Voulme"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("4_5sp58")
+theme_override_icons/grabber_highlight = ExtResource("4_5sp58")
+theme_override_icons/grabber_disabled = ExtResource("5_phwrd")
+theme_override_styles/slider = SubResource("StyleBoxFlat_fayoa")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_y7dpk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_gweul")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="BckTMnu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.5
+offset_top = -148.0
+offset_right = 131.5
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back to menu
+"
+
+[connection signal="toggled" from="VBoxContainer/Fullscreen/FullScreen" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="VBoxContainer2/Voulme/Volume" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="BckTMnu" to="." method="_on_bck_t_mnu_pressed"]
