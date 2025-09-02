@@ -22,7 +22,7 @@ func _on_bck_t_mnu_pressed() -> void:
 	if is_from_game:
 		get_tree().change_scene_to_file("res://Scenes/level.tscn")
 	else:
-		get_tree().change_scene_to_file("res://ui/menu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://Scenes/ui/main_menu.tscn")
 
 func save_settings():
 	config.set_value("audio", "music_volume", volume_value)

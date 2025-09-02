@@ -30,5 +30,5 @@ func reload_level()->void:
 	if iteration<3:
 		get_tree().call_deferred("reload_current_scene")
 	else:
-		get_tree().call_deferred("change_scene_to_file","res://Scenes/UI/win.tscn")
+		get_tree().call_deferred("change_scene_to_file","res://Scenes/ui/win.tscn")
 	

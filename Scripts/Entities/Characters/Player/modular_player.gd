@@ -44,7 +44,7 @@ func damage(amt: float):
 
 func _on_health_updated(_prev, _amt):
 	if _amt == 0:
-		get_tree().change_scene_to_file("res://ui/game_over.tscn")
+		get_tree().change_scene_to_file("res://Scenes/ui/game_over.tscn")
 
 func set_ability(iteration: int):
 	match iteration:

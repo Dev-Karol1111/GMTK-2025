@@ -5,7 +5,8 @@ class_name AnimationComponent
 @export var sprite:AnimatedSprite2D
 
 func _ready():
-	GameStateManager.paused.connect(pause)
+	pass
+	#GameStateManager.paused.connect(pause)
 
 func play(animation:String):
 	sprite.play(animation)
