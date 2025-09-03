@@ -16,10 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://blocd1bude0k8" path="res://Assets/Sprites/Characters/Player/RobotWalk.png" id="12_r3kud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjttw"]
-size = Vector2(12, 16)
+size = Vector2(12, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jore7"]
-size = Vector2(18, 16)
+size = Vector2(18, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2hr2"]
 radius = 63.6946
@@ -121,13 +121,13 @@ health_component = NodePath("HealthComponent")
 animation_component = NodePath("AnimationComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_wjttw")
 
 [node name="DashArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashArea2D"]
-position = Vector2(1, 1.3411e-06)
+position = Vector2(1, 0.500001)
 shape = SubResource("RectangleShape2D_jore7")
 
 [node name="ObjectManipulationArea2D" type="Area2D" parent="."]
